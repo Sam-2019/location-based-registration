@@ -32,6 +32,28 @@ const Map = () => {
 
     map.on("load", () => {
       marker.setLngLat(lngLat).addTo(map);
+
+      map.addSource('iso', {
+        type: 'geojson',
+        data: {
+          'type': 'FeatureCollection',
+          'features': []
+        }
+      });
+
+      map.addLayer({
+        'id': 'isoLayer',
+        'type': 'fill',
+        // Use "iso" as the data source for this layer
+        'source': 'iso',
+        'layout': {},
+        'paint': {
+          // The fill color for the layer is set to a light purple
+          'fill-color': '#5a3fc0',
+          'fill-opacity': 0.3
+        }
+      }, "poi-label");
+     
     });
 
     // Add navigation control (the +/- zoom buttons)
