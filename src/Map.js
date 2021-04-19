@@ -1,5 +1,6 @@
 import React, { useRef, useEffect, useState } from "react";
 import mapboxgl from "mapbox-gl";
+import axios from "axios";
 import "./map.css";
 
 mapboxgl.accessToken =
@@ -8,18 +9,36 @@ mapboxgl.accessToken =
 const Map = () => {
   const mapContainerRef = useRef(null);
 
+  var urlBase = "https://api.mapbox.com/isochrone/v1/mapbox/";
+  var profile = "cycling";
+  var minutes = 10;
+
   const [lng, setLng] = useState(5);
   const [lat, setLat] = useState(34);
   const [zoom, setZoom] = useState(1.5);
 
+  const [data, setData] = useState([]);
+
   var marker = new mapboxgl.Marker({
     color: "#314ccd"
   });
-  
+
   var lngLat = {
     lon: lng,
     lat: lat
   };
+
+  var query =
+    urlBase +
+    profile +
+    "/" +
+    lng +
+    "," +
+    lat +
+    "?contours_minutes=" +
+    minutes +
+    "&polygons=true&access_token=" +
+    mapboxgl.accessToken;
 
   // Initialize map when component mounts
   useEffect(() => {
@@ -30,32 +49,40 @@ const Map = () => {
       zoom: zoom
     });
 
-    map.on("load", () => {
-   
+    try {
+      const response = axios.get(query);
+      // map.getSource("iso").setData(response);
+      console.log(response);
+    } catch (error) {
+      console.error(error);
+    }
 
-      map.addSource('iso', {
-        type: 'geojson',
+    map.on("load", () => {
+      map.addSource("iso", {
+        type: "geojson",
         data: {
-          'type': 'FeatureCollection',
-          'features': []
+          type: "FeatureCollection",
+          features: []
         }
       });
 
-      map.addLayer({
-        'id': 'isoLayer',
-        'type': 'fill',
-        // Use "iso" as the data source for this layer
-        'source': 'iso',
-        'layout': {},
-        'paint': {
-          // The fill color for the layer is set to a light purple
-          'fill-color': '#5a3fc0',
-          'fill-opacity': 0.3
-        }
-      }, "poi-label");
+      map.addLayer(
+        {
+          id: "isoLayer",
+          type: "fill",
+          // Use "iso" as the data source for this layer
+          source: "iso",
+          layout: {},
+          paint: {
+            // The fill color for the layer is set to a light purple
+            "fill-color": "#5a3fc0",
+            "fill-opacity": 0.3
+          }
+        },
+        "poi-label"
+      );
 
       marker.setLngLat(lngLat).addTo(map);
-     
     });
 
     // Add navigation control (the +/- zoom buttons)
