@@ -52,7 +52,7 @@ const Map = () => {
     async function getUser() {
       try {
         const response = await axios.get(query);
-        // console.log(response.data);
+      console.log(response.data);
         setURL(response.data);
       } catch (error) {
         console.error(error);
