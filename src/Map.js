@@ -17,7 +17,7 @@ const Map = () => {
   const [lat, setLat] = useState(34);
   const [zoom, setZoom] = useState(1.5);
 
-  const [data, setData] = useState([]);
+  const [url, setURL] = useState({});
 
   var marker = new mapboxgl.Marker({
     color: "#314ccd"
@@ -49,13 +49,17 @@ const Map = () => {
       zoom: zoom
     });
 
-    try {
-      const response = axios.get(query);
-      // map.getSource("iso").setData(response);
-      console.log(response);
-    } catch (error) {
-      console.error(error);
+    async function getUser() {
+      try {
+        const response = await axios.get(query);
+        // console.log(response.data);
+        setURL(response.data);
+      } catch (error) {
+        console.error(error);
+      }
     }
+
+    //console.log(url)
 
     map.on("load", () => {
       map.addSource("iso", {
@@ -65,6 +69,8 @@ const Map = () => {
           features: []
         }
       });
+
+      map.getSource("iso").setData(url);
 
       map.addLayer(
         {
@@ -94,6 +100,7 @@ const Map = () => {
       setZoom(map.getZoom().toFixed(2));
     });
 
+    getUser();
     // Clean up on unmount
     return () => map.remove();
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
