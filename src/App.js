@@ -1,6 +1,5 @@
 import "./styles.css";
-import Map from "./Map";
-import Demo from "./turf";
+import Map from './googleMaps/maps'
 
 export default function App() {
   return (
