@@ -31,7 +31,7 @@ const Map = () => {
     });
 
     map.on("load", () => {
-      marker.setLngLat(lngLat).addTo(map);
+   
 
       map.addSource('iso', {
         type: 'geojson',
@@ -53,6 +53,8 @@ const Map = () => {
           'fill-opacity': 0.3
         }
       }, "poi-label");
+
+      marker.setLngLat(lngLat).addTo(map);
      
     });
 
