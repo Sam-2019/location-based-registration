@@ -6,7 +6,9 @@ import {
   Marker,
   StreetViewService,
   InfoBox,
-  DistanceMatrixService
+  DistanceMatrixService,
+  DistanceMatrixResponse,
+  DistanceMatrixStatus
 } from "@react-google-maps/api";
 
 const containerStyle = {
@@ -54,16 +56,16 @@ const onUnmount = (circle, distanceMatrixService) => {
   );
 };
 
-const origin1 = { lat: 55.93, lng: -3.118 };
-const origin2 = "Greenwich, England";
-const destinationA = "Stockholm, Sweden";
-const destinationB = { lat: 50.087, lng: 14.421 };
+var origin1 = new google.maps.LatLng(55.930385, -3.118425);
+var origin2 = 'Greenwich, England';
+var destinationA = 'Stockholm, Sweden';
+var destinationB = new google.maps.LatLng(50.087692, 14.421150);
 
 const optionsDistance = {
   origins: [origin1, origin2],
   destinations: [destinationA, destinationB],
-  travelMode: google.maps.TravelMode.DRIVING,
-  unitSystem: google.maps.UnitSystem.METRIC,
+  travelMode: "WALKING",
+  //unitSystem: "METRIC",
   avoidHighways: false,
   avoidTolls: false
 };
@@ -71,9 +73,22 @@ const optionsDistance = {
 function callback(response, status) {
   console.log(response, status);
 
-  response: DistanceMatrixResponse,
-  status: DistanceMatrixStatus
+  response: DistanceMatrixResponse;
+  status: DistanceMatrixStatus;
 
+  const originList = response.originAddresses;
+  const destinationList = response.destinationAddresses;
+
+  for (var i = 0; i < originList.length; i++) {
+    var results = response.rows[i].elements;
+    for (var j = 0; j < results.length; j++) {
+      var element = results[j];
+      var distance = element.distance.text;
+      var duration = element.duration.text;
+      var from = originList[i];
+      var to = destinationList[j];
+    }
+  }
 }
 
 function MyComponent() {
