@@ -8,8 +8,11 @@ import {
   InfoBox,
   DistanceMatrixService,
   DistanceMatrixResponse,
-  DistanceMatrixStatus
+  DistanceMatrixStatus,
+  Data
 } from "@react-google-maps/api";
+
+const radius = 17.18;
 
 const containerStyle = {
   width: "100%",
@@ -36,16 +39,17 @@ const options = {
   draggable: false,
   editable: false,
   visible: true,
-  radius: 17.18,
+  radius: radius,
   zIndex: 1
 };
 
 const optionsInfo = { closeBoxURL: "", enableEventPropagation: true };
 
-const onLoad = (circle, infoBox, distanceMatrixService) => {
+const onLoad = (circle, infoBox, distanceMatrixService, data) => {
   // console.log("Circle onLoad circle: ", circle);
   //console.log("infoBox: ", infoBox);
-  console.log("distanceMatrixService: ", distanceMatrixService);
+  // console.log("distanceMatrixService: ", distanceMatrixService);
+  console.log("data: ", data);
 };
 
 const onUnmount = (circle, distanceMatrixService) => {
@@ -61,35 +65,51 @@ const origin2 = "Greenwich, England";
 const destinationA = "Stockholm, Sweden";
 const destinationB = { lat: 50.087, lng: 14.421 };
 
-const optionsDistance = {
-  origins: [origin1, origin2],
-  destinations: [destinationA, destinationB],
-  travelMode: "WALKING",
-  //unitSystem: "METRIC",
-  avoidHighways: false,
-  avoidTolls: false
+// const optionsDistance = {
+//   origins: [origin1, origin2],
+//   destinations: [destinationA, destinationB],
+//   travelMode: "WALKING",
+//   //unitSystem: "METRIC",
+//   avoidHighways: false,
+//   avoidTolls: false
+// };
+
+// function callback(response, status) {
+//   console.log(response, status);
+
+//   response: DistanceMatrixResponse;
+//   status: DistanceMatrixStatus;
+
+//   const originList = response.originAddresses;
+//   const destinationList = response.destinationAddresses;
+
+//   for (var i = 0; i < originList.length; i++) {
+//     var results = response.rows[i].elements;
+//     for (var j = 0; j < results.length; j++) {
+//       var element = results[j];
+//       var distance = element.distance.text;
+//       var duration = element.duration.text;
+//       var from = originList[i];
+//       var to = destinationList[j];
+//     }
+//   }
+// }
+
+const withinRegion = () => {
+  const to = center;
+  const from = userLocation;
+  const distance = google.maps.geometry.spherical.computeDistanceBetween;
+
+  // distance(from, to) <= radius;
+  distance(from, to);
+  console.log(to);
+  console.log(from);
 };
 
-function callback(response, status) {
-  console.log(response, status);
-
-  response: DistanceMatrixResponse;
-  status: DistanceMatrixStatus;
-
-  const originList = response.originAddresses;
-  const destinationList = response.destinationAddresses;
-
-  for (var i = 0; i < originList.length; i++) {
-    var results = response.rows[i].elements;
-    for (var j = 0; j < results.length; j++) {
-      var element = results[j];
-      var distance = element.distance.text;
-      var duration = element.duration.text;
-      var from = originList[i];
-      var to = destinationList[j];
-    }
-  }
-}
+const setGeometry = () => {
+  console.log("hi");
+  withinRegion();
+};
 
 function MyComponent() {
   return (
@@ -103,7 +123,6 @@ function MyComponent() {
         {/* Child components, such as markers, info windows, etc. */}
         <>
           <Circle
-            // optional
             onLoad={onLoad}
             // optional
             onUnmount={onUnmount}
@@ -128,12 +147,32 @@ function MyComponent() {
               </div>
             </div>
           </InfoBox>
-          <DistanceMatrixService
+          {/* <DistanceMatrixService
             onLoad={onLoad}
             onUnmount={onUnmount}
             options={optionsDistance}
             callback={callback}
-          ></DistanceMatrixService>
+          /> */}
+
+          <Data
+            onLoad={onLoad}
+            options={{
+              featureFactory: (geometry) => {
+                console.log("geometry: ", geometry);
+                const to = center;
+                const from = userLocation;
+                const distance = geometry.spherical.computeDistanceBetween;
+
+                console.log(distance);
+
+                // distance(from, to) <= radius;
+                distance(from, to);
+                console.log(to);
+                console.log(from);
+              }
+            }}
+            setGeometry={setGeometry}
+          />
         </>
       </GoogleMap>
     </LoadScript>
