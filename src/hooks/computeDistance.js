@@ -20,7 +20,7 @@ const ComputeDistance = () => {
     );
 
     setDistance(distanceMeters);
-   //  console.log("Distance in Meters: ", distanceMeters);
+    //  console.log("Distance in Meters: ", distanceMeters);
   };
 
   return { distance };

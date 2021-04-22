@@ -35,6 +35,8 @@ const Map = ({ radius }) => {
       <p>Watch position: (Status: {isWatchinForLocation.toString()})</p>
       <Location location={location} error={error} />
 
+      {distance}
+
       {distance <= radius ? <> Cant register </> : <> Please register </>}
     </>
   );
