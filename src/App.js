@@ -1,5 +1,5 @@
 import "./styles.css";
-import Map from './googleMaps/maps'
+import Map from './googleMaps/maps2'
 
 export default function App() {
   return (
