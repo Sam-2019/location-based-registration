@@ -1,10 +1,8 @@
 import React from "react";
-import GMap from './GMap'
-
-
+import GMap from "./GMap";
 
 // API key of the google map
-const GOOGLE_MAP_API_KEY = "AIzaSyAp0NSXBzcbvUFA7ZAZp8YjXIVv8zE1WpA";
+const GOOGLE_MAP_API_KEY = "";
 
 // load google map script
 const loadGoogleMapScript = (callback) => {
@@ -21,7 +19,7 @@ const loadGoogleMapScript = (callback) => {
   }
 };
 
-function MyComponent() {
+const MyComponent = ({ radius }) => {
   const [loadMap, setLoadMap] = React.useState(false);
 
   React.useEffect(() => {
@@ -30,14 +28,11 @@ function MyComponent() {
     });
   }, []);
 
-  
   return (
     <div className="App">
-
-
-      {!loadMap ? <div>Loading...</div> : <GMap />}
+      {!loadMap ? <div>Loading...</div> : <GMap radius={radius} />}
     </div>
   );
-}
+};
 
 export default React.memo(MyComponent);

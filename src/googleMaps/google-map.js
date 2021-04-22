@@ -95,11 +95,19 @@ const destinationB = { lat: 50.087, lng: 14.421 };
 //   }
 // }
 
+const computeDistance = () => {
+  // const distanceMeters = google.maps.geometry.spherical.computeDistanceBetween(
+  //   userLocation,
+  //   center
+  // );
+
+  setDistance(distanceMeters);
+  //  console.log("Distance in Meters: ", distanceMeters);
+};
+
 function MyComponent() {
   React.useEffect(() => {
-
- 
-
+    computeDistance();
   });
   return (
     <LoadScript googleMapsApiKey="AIzaSyAyesbQMyKVVbBgKVi2g6VX7mop2z96jBo">

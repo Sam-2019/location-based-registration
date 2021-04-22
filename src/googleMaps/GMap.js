@@ -8,7 +8,6 @@ const containerStyle = {
 };
 
 const GMap = () => {
-  const [distance, setDistance] = useState(0);
   const googleMapRef = useRef(null);
   let googleMap = null;
 
@@ -23,11 +22,10 @@ const GMap = () => {
 
   useEffect(() => {
     googleMap = initGoogleMap();
-    computeDistance();
   }, []);
 
   // initialize the google map
-  const initGoogleMap = () => {
+  const initGoogleMap = (distance) => {
     const map = new google.maps.Map(googleMapRef.current, {
       center: center,
       zoom: 20,
@@ -56,22 +54,6 @@ const GMap = () => {
       radius: radius,
       draggable: false
     });
-  };
-
-  const computeDistance = () => {
-    const to = new google.maps.LatLng(5.755071140968645, 0.05037);
-    const from = new google.maps.LatLng(
-      5.754484382930839,
-      0.050190650641205724
-    );
-
-    const distanceMeters = google.maps.geometry.spherical.computeDistanceBetween(
-      from,
-      to
-    );
-
-    setDistance(distanceMeters);
-  //  console.log("Distance in Meters: ", distanceMeters);
   };
 
   return <div ref={googleMapRef} style={containerStyle} />;
