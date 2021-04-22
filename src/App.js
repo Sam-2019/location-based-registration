@@ -1,10 +1,6 @@
-import "./styles.css";
-import Map from './googleMaps/maps2'
+import React from "react";
+import Map from "./Map";
 
 export default function App() {
-  return (
-    <div className="App">
-      <Map />
-    </div>
-  );
+  return <Map />;
 }
