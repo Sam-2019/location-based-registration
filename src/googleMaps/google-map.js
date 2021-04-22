@@ -56,10 +56,10 @@ const onUnmount = (circle, distanceMatrixService) => {
   );
 };
 
-var origin1 = new google.maps.LatLng(55.930385, -3.118425);
-var origin2 = 'Greenwich, England';
-var destinationA = 'Stockholm, Sweden';
-var destinationB = new google.maps.LatLng(50.087692, 14.421150);
+const origin1 = { lat: 55.93, lng: -3.118 };
+const origin2 = "Greenwich, England";
+const destinationA = "Stockholm, Sweden";
+const destinationB = { lat: 50.087, lng: 14.421 };
 
 const optionsDistance = {
   origins: [origin1, origin2],
