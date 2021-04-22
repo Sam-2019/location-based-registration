@@ -95,23 +95,12 @@ const destinationB = { lat: 50.087, lng: 14.421 };
 //   }
 // }
 
-const withinRegion = () => {
-  const to = center;
-  const from = userLocation;
-  const distance = google.maps.geometry.spherical.computeDistanceBetween;
-
-  // distance(from, to) <= radius;
-  distance(from, to);
-  console.log(to);
-  console.log(from);
-};
-
-const setGeometry = () => {
-  console.log("hi");
-  withinRegion();
-};
-
 function MyComponent() {
+  React.useEffect(() => {
+
+ 
+
+  });
   return (
     <LoadScript googleMapsApiKey="AIzaSyAyesbQMyKVVbBgKVi2g6VX7mop2z96jBo">
       <GoogleMap
@@ -153,26 +142,6 @@ function MyComponent() {
             options={optionsDistance}
             callback={callback}
           /> */}
-
-          <Data
-            onLoad={onLoad}
-            options={{
-              featureFactory: (geometry) => {
-                console.log("geometry: ", geometry);
-                const to = center;
-                const from = userLocation;
-                const distance = geometry.spherical.computeDistanceBetween;
-
-                console.log(distance);
-
-                // distance(from, to) <= radius;
-                distance(from, to);
-                console.log(to);
-                console.log(from);
-              }
-            }}
-            setGeometry={setGeometry}
-          />
         </>
       </GoogleMap>
     </LoadScript>
