@@ -12,6 +12,11 @@ const containerStyle = {
   height: "800px"
 };
 
+const userLocation = {
+  lat: 5.754484382930839,
+  lng: 0.050190650641205724
+};
+
 const center = {
   lat: 5.755071140968645,
   lng: 0.05037
@@ -62,6 +67,8 @@ function MyComponent() {
           />
 
           <Marker position={center} />
+
+          <Marker position={userLocation} />
         </>
       </GoogleMap>
     </LoadScript>
