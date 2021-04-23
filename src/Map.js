@@ -3,6 +3,7 @@ import GoogleMap from "./googleMaps/new-maps";
 import useCurrentLocation from "./hooks/useCurrentLocation";
 import useWatchLocation from "./hooks/useWatchLocation";
 import { geolocationOptions } from "./constants/geolocationOptions";
+import Form from "./component/register";
 
 const radius = 17.18;
 
@@ -29,12 +30,14 @@ const Map = () => {
 
   return (
     <>
-      <GoogleMap
+      {/* <GoogleMap
         radius={radius}
         currentLocation={currentLocation}
         currentError={currentError}
         isWatchinForLocation={isWatchinForLocation}
-      />
+      /> */}
+
+      <Form />
     </>
   );
 };

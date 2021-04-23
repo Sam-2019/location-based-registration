@@ -1,0 +1,22 @@
+form {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 400px;
+}
+
+input {
+  padding: 5px;
+  margin: 0px 0px 10px 0px;
+}
+
+select {
+  padding: 5px 0;
+  margin: 0px 0px 10px 0px;
+}
+
+@media (max-width: 500px) {
+  form {
+    width: 100%;
+  }
+}
