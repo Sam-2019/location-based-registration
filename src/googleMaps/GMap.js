@@ -85,6 +85,25 @@ const GMap = ({ radius, currentLocation, currentError }) => {
       radius: radius,
       draggable: false
     });
+
+    const poly = new google.maps.Polyline({
+      strokeColor: "#FF0000",
+      strokeOpacity: 1.0,
+      strokeWeight: 3,
+      map: map
+    });
+
+    const geodesicPoly = new google.maps.Polyline({
+      strokeColor: "#CC0099",
+      strokeOpacity: 1.0,
+      strokeWeight: 3,
+      geodesic: true,
+      map: map
+    });
+
+    const path = [premises.getPosition(), user.getPosition()];
+    poly.setPath(path);
+    geodesicPoly.setPath(path);
   };
 
   // console.log(center);
