@@ -21,7 +21,11 @@ const GMap = ({ radius, currentLocation, currentError }) => {
   const userLocation = {
     // lat: currentLocation.lat ,
     // lng: currentLocation.lng
-    lat: 5.754484382930839,
+
+    // lat: 5.755128,
+    // lng: 0.050256
+
+    lat: 5.754487382950839,
     lng: 0.050190650641205724
   };
 
