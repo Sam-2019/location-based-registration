@@ -3,8 +3,7 @@ import mapboxgl from "mapbox-gl";
 import axios from "axios";
 import "./map.css";
 
-mapboxgl.accessToken =
-  "pk.eyJ1IjoiZHVrZWR1bmNhbiIsImEiOiJjazk4N3ltdncwOHJsM25xbnk5dmVkczBlIn0.grKHVcc3zB5oG2tFKX2U1w";
+mapboxgl.accessToken = "";
 
 const Map = () => {
   const mapContainerRef = useRef(null);
@@ -52,7 +51,7 @@ const Map = () => {
     async function getUser() {
       try {
         const response = await axios.get(query);
-      console.log(response.data);
+        console.log(response.data);
         setURL(response.data);
       } catch (error) {
         console.error(error);
