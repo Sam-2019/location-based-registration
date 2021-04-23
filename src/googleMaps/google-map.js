@@ -14,6 +14,8 @@ import {
 
 const radius = 17.18;
 
+const lib = ["geometry"];
+
 const containerStyle = {
   width: "100%",
   height: "800px"
@@ -109,7 +111,10 @@ function MyComponent() {
     computeDistance();
   });
   return (
-    <LoadScript googleMapsApiKey="AIzaSyAyesbQMyKVVbBgKVi2g6VX7mop2z96jBo">
+    <LoadScript
+      googleMapsApiKey="AIzaSyAyesbQMyKVVbBgKVi2g6VX7mop2z96jBo"
+      libraries={lib}
+    >
       <GoogleMap
         mapContainerStyle={containerStyle}
         center={center}

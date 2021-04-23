@@ -1,13 +1,16 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
+import Location from "../component/Location";
 
-const containerStyle = {
-  width: "100%",
-  height: "800px"
-};
+const GMap = ({ radius, currentLocation, currentError }) => {
+  const [distance, setDistance] = useState(0);
 
-const GMap = ({ radius }) => {
   const googleMapRef = useRef(null);
   let googleMap = null;
+
+  const containerStyle = {
+    width: "100%",
+    height: "800px"
+  };
 
   const center = {
     lat: 5.755071140968645,
@@ -22,8 +25,7 @@ const GMap = ({ radius }) => {
     googleMap = initGoogleMap();
   }, []);
 
-  // initialize the google map
-  const initGoogleMap = (distance) => {
+  const initGoogleMap = () => {
     const map = new google.maps.Map(googleMapRef.current, {
       center: center,
       zoom: 20,
@@ -54,7 +56,45 @@ const GMap = ({ radius }) => {
     });
   };
 
-  return <div ref={googleMapRef} style={containerStyle} />;
+  useEffect(() => {
+    let didCancel = false;
+
+    async function compute() {
+      const to = await new google.maps.LatLng(5.755071140968645, 0.05037);
+      const from = await new google.maps.LatLng(
+        5.754484382930839,
+        0.050190650641205724
+      );
+
+      const distanceMeters = await new google.maps.geometry.spherical.computeDistanceBetween(
+        from,
+        to
+      );
+
+      if (!didCancel) {
+        setDistance(distanceMeters);
+      }
+
+      //  console.log("Distance in Meters: ", distanceMeters);
+    }
+
+    compute();
+
+    return () => {
+      didCancel = true;
+    };
+  }, []);
+
+  return (
+    <div>
+      <div ref={googleMapRef} style={containerStyle} />
+
+      <p>Current position:</p>
+      <Location location={currentLocation} error={currentError} />
+
+      {distance}
+    </div>
+  );
 };
 
 export default GMap;

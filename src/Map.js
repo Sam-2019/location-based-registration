@@ -31,14 +31,11 @@ const Map = () => {
 
   return (
     <>
-      {location === undefined ? (
-        <GoogleMap radius={radius} />
-      ) : (
-        <>
-          <p>Current position:</p>
-          <Location location={currentLocation} error={currentError} />
-        </>
-      )}
+      <GoogleMap
+        radius={radius}
+        currentLocation={currentLocation}
+        currentError={currentError}
+      />
 
       {/* <p>Watch position: (Status: {isWatchinForLocation.toString()})</p>
       <Location location={location} error={error} /> */}
