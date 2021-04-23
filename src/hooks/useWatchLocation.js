@@ -14,8 +14,8 @@ const useWatchLocation = (options = {}) => {
     const { latitude, longitude } = pos.coords;
 
     setLocation({
-      latitude,
-      longitude
+      lat: latitude,
+      lng: longitude
     });
   };
 

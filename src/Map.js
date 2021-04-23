@@ -25,16 +25,16 @@ const Map = () => {
     }, 3000);
   }, [location, cancelLocationWatch]);
 
+  //console.log(isWatchinForLocation.toString());
+
   return (
     <>
       <GoogleMap
         radius={radius}
         currentLocation={currentLocation}
         currentError={currentError}
+        isWatchinForLocation={isWatchinForLocation}
       />
-
-      {/* <p>Watch position: (Status: {isWatchinForLocation.toString()})</p>
-      <Location location={location} error={error} /> */}
     </>
   );
 };

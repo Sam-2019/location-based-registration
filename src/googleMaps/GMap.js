@@ -10,7 +10,7 @@ const GMap = ({ radius, currentLocation, currentError }) => {
 
   const containerStyle = {
     width: "100%",
-    height: "800px"
+    height: "500px"
   };
 
   const center = {
