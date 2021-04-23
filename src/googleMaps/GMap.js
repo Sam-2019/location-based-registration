@@ -16,7 +16,10 @@ const GMap = ({ radius, currentLocation, currentError }) => {
     lat: 5.755071140968645,
     lng: 0.05037
   };
+
   const userLocation = {
+    // lat: currentLocation.lat ,
+    // lng: currentLocation.lng
     lat: 5.754484382930839,
     lng: 0.050190650641205724
   };
@@ -83,6 +86,9 @@ const GMap = ({ radius, currentLocation, currentError }) => {
     });
   };
 
+  // console.log(center);
+  //console.log(currentLocation);
+
   useEffect(() => {
     let didCancel = false;
 
@@ -99,7 +105,7 @@ const GMap = ({ radius, currentLocation, currentError }) => {
         setDistance(distanceMeters);
       }
 
-      console.log("Distance in Meters: ", distanceMeters);
+      // console.log("Distance in Meters: ", distanceMeters);
     }
 
     compute();
@@ -117,7 +123,7 @@ const GMap = ({ radius, currentLocation, currentError }) => {
       <Location location={currentLocation} error={currentError} /> */}
 
       <div style={{ marginTop: 10, marginBottom: 10 }}>
-        You are {distance} meters away from Premises
+        You are {Math.round(distance)} meters away from Premises
       </div>
 
       <div>

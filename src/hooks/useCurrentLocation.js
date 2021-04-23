@@ -1,5 +1,10 @@
 import { useState, useEffect } from "react";
 
+const userLocation = {
+  lat: 5.754484382930839,
+  lng: 0.050190650641205724
+};
+
 const useCurrentLocation = (options = {}) => {
   // store location in state
   const [location, setLocation] = useState();
@@ -11,8 +16,8 @@ const useCurrentLocation = (options = {}) => {
     const { latitude, longitude } = pos.coords;
 
     setLocation({
-      latitude,
-      longitude,
+      lat: latitude,
+      lng: longitude
     });
   };
 

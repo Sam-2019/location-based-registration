@@ -19,7 +19,7 @@ const loadGoogleMapScript = (callback) => {
   }
 };
 
-const MyComponent = ({ radius }) => {
+const MyComponent = ({ radius, currentLocation, currentError }) => {
   const [loadMap, setLoadMap] = React.useState(false);
 
   React.useEffect(() => {
@@ -30,7 +30,15 @@ const MyComponent = ({ radius }) => {
 
   return (
     <div className="App">
-      {!loadMap ? <div>Loading...</div> : <GMap radius={radius} />}
+      {!loadMap ? (
+        <div>Loading...</div>
+      ) : (
+        <GMap
+          radius={radius}
+          currentLocation={currentLocation}
+          currentError={currentError}
+        />
+      )}
     </div>
   );
 };

@@ -6,7 +6,7 @@ const Location = ({ location, error }) => {
     <div>
       {location ? (
         <code>
-          Latitude: {location.latitude}, Longitude: {location.longitude}
+          Latitude: {location.lat}, Longitude: {location.lng}
         </code>
       ) : (
         <p>Loading...</p>
