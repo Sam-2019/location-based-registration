@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import PropTypes from "prop-types";
 import Location from "../component/Location";
 
 const GMap = ({ radius, currentLocation, currentError }) => {
@@ -136,3 +137,9 @@ const GMap = ({ radius, currentLocation, currentError }) => {
 };
 
 export default GMap;
+
+GMap.propTypes = {
+  radius: PropTypes.number,
+  currentLocation: PropTypes.object,
+  currentError: PropTypes.object
+};

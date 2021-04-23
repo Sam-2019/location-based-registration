@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import PropTypes from "prop-types";
 
 const useWatchLocation = (options = {}) => {
   // store location in state
@@ -14,7 +15,7 @@ const useWatchLocation = (options = {}) => {
 
     setLocation({
       latitude,
-      longitude,
+      longitude
     });
   };
 
@@ -42,7 +43,11 @@ const useWatchLocation = (options = {}) => {
     }
 
     // Start to watch the location with the Geolocation API
-    locationWatchId.current = geolocation.watchPosition(handleSuccess, handleError, options);
+    locationWatchId.current = geolocation.watchPosition(
+      handleSuccess,
+      handleError,
+      options
+    );
 
     // Clear the location watch instance when React unmounts the used component
     return cancelLocationWatch;
@@ -52,3 +57,7 @@ const useWatchLocation = (options = {}) => {
 };
 
 export default useWatchLocation;
+
+useWatchLocation.propTypes = {
+  options: PropTypes.object
+};

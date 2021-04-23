@@ -1,9 +1,5 @@
 import { useState, useEffect } from "react";
-
-const userLocation = {
-  lat: 5.754484382930839,
-  lng: 0.050190650641205724
-};
+import PropTypes from "prop-types";
 
 const useCurrentLocation = (options = {}) => {
   // store location in state
@@ -43,3 +39,7 @@ const useCurrentLocation = (options = {}) => {
 };
 
 export default useCurrentLocation;
+
+useCurrentLocation.propTypes = {
+  options: PropTypes.object
+};
