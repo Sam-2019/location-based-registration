@@ -3,8 +3,6 @@ import GoogleMap from "./googleMaps/new-maps";
 import useCurrentLocation from "./hooks/useCurrentLocation";
 import useWatchLocation from "./hooks/useWatchLocation";
 import { geolocationOptions } from "./constants/geolocationOptions";
-import computeDistance from "./hooks/computeDistance";
-import Location from "./component/Location";
 
 const radius = 17.18;
 
@@ -16,8 +14,6 @@ const Map = () => {
     geolocationOptions
   );
   const [isWatchinForLocation, setIsWatchForLocation] = useState(true);
-
-  // const { distance } = computeDistance();
 
   useEffect(() => {
     if (!location) return;
@@ -39,10 +35,6 @@ const Map = () => {
 
       {/* <p>Watch position: (Status: {isWatchinForLocation.toString()})</p>
       <Location location={location} error={error} /> */}
-
-      {/* {distance} */}
-
-      {/* {distance <= radius ? <> Cant register </> : <> Please register </>} */}
     </>
   );
 };

@@ -33,15 +33,42 @@ const GMap = ({ radius, currentLocation, currentError }) => {
       radius: radius
     });
 
-    new google.maps.Marker({
+    const premisesContent =
+      '<div id="content">' +
+      '<div id="siteNotice">' +
+      "</div>" +
+      '<h1 id="firstHeading" class="firstHeading">Premises</h1>' +
+      "</div>";
+
+    const premisesInfo = new google.maps.InfoWindow({
+      content: premisesContent
+    });
+
+    const premises = new google.maps.Marker({
       position: center,
       map: map
     });
+    premises.addListener("click", () => {
+      premisesInfo.open(map, premises);
+    });
 
-    new google.maps.Marker({
+    const userContent =
+      '<div id="content">' +
+      '<div id="siteNotice">' +
+      "</div>" +
+      '<h1 id="firstHeading" class="firstHeading">Current Location</h1>' +
+      "</div>";
+
+    const userInfo = new google.maps.InfoWindow({
+      content: userContent
+    });
+
+    const user = new google.maps.Marker({
       position: userLocation,
-      map,
-      title: "Hello World!"
+      map
+    });
+    user.addListener("click", () => {
+      userInfo.open(map, user);
     });
 
     new google.maps.Circle({
@@ -60,13 +87,10 @@ const GMap = ({ radius, currentLocation, currentError }) => {
     let didCancel = false;
 
     async function compute() {
-      const to = await new google.maps.LatLng(5.755071140968645, 0.05037);
-      const from = await new google.maps.LatLng(
-        5.754484382930839,
-        0.050190650641205724
-      );
+      const to = await new google.maps.LatLng(center);
+      const from = await new google.maps.LatLng(userLocation);
 
-      const distanceMeters = await new google.maps.geometry.spherical.computeDistanceBetween(
+      const distanceMeters = await google.maps.geometry.spherical.computeDistanceBetween(
         from,
         to
       );
@@ -75,7 +99,7 @@ const GMap = ({ radius, currentLocation, currentError }) => {
         setDistance(distanceMeters);
       }
 
-      //  console.log("Distance in Meters: ", distanceMeters);
+      console.log("Distance in Meters: ", distanceMeters);
     }
 
     compute();
@@ -89,10 +113,18 @@ const GMap = ({ radius, currentLocation, currentError }) => {
     <div>
       <div ref={googleMapRef} style={containerStyle} />
 
-      <p>Current position:</p>
-      <Location location={currentLocation} error={currentError} />
+      {/* <p>Current position:</p>
+      <Location location={currentLocation} error={currentError} /> */}
 
-      {distance}
+      <div style={{ marginTop: 10, marginBottom: 10 }}>
+        You are {distance} meters away from Premises
+      </div>
+
+      <div>
+        {distance >= radius
+          ? "Outside range. Cant Register!"
+          : "Please Register"}
+      </div>
     </div>
   );
 };
