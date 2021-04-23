@@ -29,8 +29,6 @@ const Map = () => {
     }, 3000);
   }, [location, cancelLocationWatch]);
 
-  console.log(location);
-
   return (
     <>
       {location === undefined ? (
