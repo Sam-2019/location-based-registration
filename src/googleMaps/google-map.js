@@ -100,8 +100,7 @@ const computeDistance = () => {
   //   userLocation,
   //   center
   // );
-
-  setDistance(distanceMeters);
+  //setDistance(distanceMeters);
   //  console.log("Distance in Meters: ", distanceMeters);
 };
 

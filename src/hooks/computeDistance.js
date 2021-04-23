@@ -14,7 +14,7 @@ const ComputeDistance = () => {
       0.050190650641205724
     );
 
-    const distanceMeters = google.maps.geometry.spherical.computeDistanceBetween(
+    const distanceMeters = new google.maps.geometry.spherical.computeDistanceBetween(
       from,
       to
     );

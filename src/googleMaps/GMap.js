@@ -1,13 +1,11 @@
-import React, { useEffect, useRef, useState } from "react";
-
-const radius = 17.18;
+import React, { useEffect, useRef } from "react";
 
 const containerStyle = {
   width: "100%",
   height: "800px"
 };
 
-const GMap = () => {
+const GMap = ({ radius }) => {
   const googleMapRef = useRef(null);
   let googleMap = null;
 

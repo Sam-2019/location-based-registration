@@ -6,7 +6,9 @@ import { geolocationOptions } from "./constants/geolocationOptions";
 import computeDistance from "./hooks/computeDistance";
 import Location from "./component/Location";
 
-const Map = ({ radius }) => {
+const radius = 17.18;
+
+const Map = () => {
   const { location: currentLocation, error: currentError } = useCurrentLocation(
     geolocationOptions
   );
@@ -15,7 +17,7 @@ const Map = ({ radius }) => {
   );
   const [isWatchinForLocation, setIsWatchForLocation] = useState(true);
 
-  const { distance } = computeDistance();
+  // const { distance } = computeDistance();
 
   useEffect(() => {
     if (!location) return;
@@ -26,18 +28,26 @@ const Map = ({ radius }) => {
       setIsWatchForLocation(false);
     }, 3000);
   }, [location, cancelLocationWatch]);
+
+  console.log(location);
+
   return (
     <>
-      <GoogleMap radius={17.18} />
-      <p>Current position:</p>
-      <Location location={currentLocation} error={currentError} />
+      {location === undefined ? (
+        <GoogleMap radius={radius} />
+      ) : (
+        <>
+          <p>Current position:</p>
+          <Location location={currentLocation} error={currentError} />
+        </>
+      )}
 
-      <p>Watch position: (Status: {isWatchinForLocation.toString()})</p>
-      <Location location={location} error={error} />
+      {/* <p>Watch position: (Status: {isWatchinForLocation.toString()})</p>
+      <Location location={location} error={error} /> */}
 
-      {distance}
+      {/* {distance} */}
 
-      {distance <= radius ? <> Cant register </> : <> Please register </>}
+      {/* {distance <= radius ? <> Cant register </> : <> Please register </>} */}
     </>
   );
 };
