@@ -21,7 +21,6 @@ export default function Register() {
         placeholder="First Name"
         readOnly
       />
-      {errors.fname && <span>This field is required</span>}
 
       <label>Last Name</label>
       <input
@@ -29,13 +28,11 @@ export default function Register() {
         placeholder="Last Name"
         readOnly
       />
-      {errors.lname && <span>This field is required</span>}
 
       <label>Department</label>
       <select {...register("department", { required: true })} readOnly>
         <option value="female">female</option>
       </select>
-      {errors.department && <span>This field is required</span>}
 
       <input type="submit" />
     </form>
