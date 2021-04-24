@@ -32,16 +32,14 @@ const Map = () => {
 
   return (
     <>
-      {/* <GoogleMap
+      <GoogleMap
         radius={radius}
         currentLocation={currentLocation}
         currentError={currentError}
         isWatchinForLocation={isWatchinForLocation}
-      /> */}
+      />
 
-      <Register />
-
-      {/* <Signup /> */}
+      <Signup />
     </>
   );
 };

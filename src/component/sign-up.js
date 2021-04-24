@@ -14,7 +14,7 @@ export default function Signup() {
     /* "handleSubmit" will validate your inputs before invoking "onSubmit" */
     <form onSubmit={handleSubmit(onSubmit)}>
       {/* register your input into the hook by invoking the "register" function */}
-
+      <h5> Signup </h5>
       <label>First Name</label>
       <input
         {...register("fname", { required: true })}

@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import PropTypes from "prop-types";
 import Location from "../component/Location";
+import Register from "../component/register";
 
 const GMap = ({ radius, currentLocation, currentError }) => {
   const [distance, setDistance] = useState(0);
@@ -151,9 +152,7 @@ const GMap = ({ radius, currentLocation, currentError }) => {
       </div>
 
       <div>
-        {distance >= radius
-          ? "Outside range. Cant Register!"
-          : "Please Register"}
+        {distance >= radius ? "Outside range. Cant Register!" : <Register />}
       </div>
     </div>
   );
