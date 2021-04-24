@@ -19,6 +19,7 @@ export default function Register() {
       <input
         {...register("fname", { required: true })}
         placeholder="First Name"
+        readOnly
       />
       {errors.fname && <span>This field is required</span>}
 
@@ -26,16 +27,13 @@ export default function Register() {
       <input
         {...register("lname", { required: true })}
         placeholder="Last Name"
+        readOnly
       />
       {errors.lname && <span>This field is required</span>}
 
       <label>Department</label>
-      <select {...register("department", { required: true })}>
-        <option selected disabled></option>
-
+      <select {...register("department", { required: true })} readOnly>
         <option value="female">female</option>
-        <option value="male">male</option>
-        <option value="other">other</option>
       </select>
       {errors.department && <span>This field is required</span>}
 

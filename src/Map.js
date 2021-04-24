@@ -5,6 +5,7 @@ import useWatchLocation from "./hooks/useWatchLocation";
 import { geolocationOptions } from "./constants/geolocationOptions";
 import Signup from "./component/sign-up";
 import Register from "./component/register";
+import Success from "./component/registerSuccess";
 
 const radius = 17.18;
 
