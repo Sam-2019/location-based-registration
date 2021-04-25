@@ -1,15 +1,11 @@
 import React, { useState, useEffect } from "react";
 import GoogleMap from "./googleMaps/new-maps";
-import useCurrentLocation from "./hooks/useCurrentLocation";
 import useWatchLocation from "./hooks/useWatchLocation";
 import { geolocationOptions } from "./constants/geolocationOptions";
 
 const radius = 17.18;
 
 const Map = () => {
-  const { location: currentLocation, error: currentError } = useCurrentLocation(
-    geolocationOptions
-  );
   const { location, cancelLocationWatch, error } = useWatchLocation(
     geolocationOptions
   );
@@ -29,12 +25,7 @@ const Map = () => {
 
   return (
     <>
-      <GoogleMap
-        radius={radius}
-        currentLocation={currentLocation}
-        currentError={currentError}
-        isWatchinForLocation={isWatchinForLocation}
-      />
+      <GoogleMap radius={radius} isWatchinForLocation={isWatchinForLocation} />
     </>
   );
 };

@@ -1,9 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
 import PropTypes from "prop-types";
-import Location from "../component/Location";
+import { useData } from "../Context";
 import Register from "../component/register";
 
-const GMap = ({ radius, currentLocation, currentError }) => {
+const GMap = ({ radius }) => {
+  const { lat, long } = useData();
   const [distance, setDistance] = useState(0);
 
   const googleMapRef = useRef(null);
@@ -20,14 +21,14 @@ const GMap = ({ radius, currentLocation, currentError }) => {
   };
 
   const userLocation = {
-    // lat: currentLocation.lat ,
-    // lng: currentLocation.lng
+    lat: lat,
+    lng: long
 
     // lat: 5.755128,
     // lng: 0.050256
 
-    lat: 5.754487382950839,
-    lng: 0.050190650641205724
+    // lat: 5.754487382950839,
+    // lng: 0.050190650641205724
   };
 
   useEffect(() => {
@@ -112,7 +113,7 @@ const GMap = ({ radius, currentLocation, currentError }) => {
   };
 
   // console.log(center);
-  //console.log(currentLocation);
+  // console.log(currentLocation);
 
   useEffect(() => {
     let didCancel = false;
