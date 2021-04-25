@@ -8,7 +8,22 @@ export default function Signup() {
     handleSubmit,
     formState: { errors }
   } = useForm();
-  const onSubmit = (data) => console.log(data);
+
+  const onSubmit = async (data) => {
+    const array = new Uint32Array(1);
+    const index = window.crypto.getRandomValues(array);
+
+    const person = {
+      fname: data.fname,
+      lname: data.lname,
+      department: data.department,
+      token: index[0]
+    };
+
+    await localStorage.setItem("fastcheckout", JSON.stringify(person));
+
+    console.log(data);
+  };
 
   return (
     /* "handleSubmit" will validate your inputs before invoking "onSubmit" */
