@@ -1,6 +1,6 @@
 import React from "react";
-import Map from "./Map";
+import Routes from "./Routes";
 
 export default function App() {
-  return <Map />;
+  return <Routes />;
 }
