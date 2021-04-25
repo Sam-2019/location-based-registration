@@ -34,7 +34,7 @@ const Register = ({ closeRegister }) => {
   };
 
   const Form = () => (
-    <>
+    <Wrapper>
       <form onSubmit={handleSubmit(onSubmit)}>
         <h5> Register </h5>
         <label>First Name</label>
@@ -56,7 +56,7 @@ const Register = ({ closeRegister }) => {
 
         <input type="submit" />
       </form>
-    </>
+    </Wrapper>
   );
 
   return <>{state ? <Form /> : <Success />}</>;
