@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from "react";
 import PropTypes from "prop-types";
 import { useData } from "../Context";
 import Register from "../component/register";
-import Success from "../component/Success";
 import "./nothing.css";
 
 const GMap = ({ radius }) => {
