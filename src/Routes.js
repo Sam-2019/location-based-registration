@@ -2,13 +2,11 @@ import {
   BrowserRouter as Router,
   Route,
   Switch,
-  useRouteMatch,
   Redirect
 } from "react-router-dom";
 import Signup from "./component/sign-up";
-import Register from "./component/register";
 import Home from "./component/Home";
-import Map from "./Map";
+
 import { useData } from "./Context";
 
 function AppROutes() {
@@ -18,16 +16,14 @@ function AppROutes() {
   return (
     <Router>
       <Switch>
-        <Route path="/">
-          <Home />
-        </Route>
-
         <Route path="/signup">
           <Signup />
         </Route>
 
-        <Route path="/register">
-          <Register />
+        {!auth ? <Redirect to="/signup" /> : <Home />}
+
+        <Route exact path="/">
+          <Home />
         </Route>
       </Switch>
     </Router>

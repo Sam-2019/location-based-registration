@@ -12,10 +12,7 @@ export default function Register() {
   const onSubmit = (data) => console.log(data);
 
   return (
-    /* "handleSubmit" will validate your inputs before invoking "onSubmit" */
-
     <form onSubmit={handleSubmit(onSubmit)}>
-      {/* register your input into the hook by invoking the "register" function */}
       <h5> Register </h5>
       <label>First Name</label>
       <input

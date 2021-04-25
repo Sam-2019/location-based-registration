@@ -3,9 +3,6 @@ import GoogleMap from "./googleMaps/new-maps";
 import useCurrentLocation from "./hooks/useCurrentLocation";
 import useWatchLocation from "./hooks/useWatchLocation";
 import { geolocationOptions } from "./constants/geolocationOptions";
-import Signup from "./component/sign-up";
-import Register from "./component/register";
-import Success from "./component/registerSuccess";
 
 const radius = 17.18;
 
@@ -29,10 +26,6 @@ const Map = () => {
   }, [location, cancelLocationWatch]);
 
   //console.log(isWatchinForLocation.toString());
-
-  const loginToken = localStorage.getItem("sign-up");
-
-  console.log(loginToken);
 
   return (
     <>

@@ -1,14 +1,10 @@
 import React, { useState, useEffect } from "react";
 import Loader from "./Loader";
-import { useLocalStorage } from "../hooks/useLocalStorage";
 import Map from "../Map";
-import Signup from "./sign-up";
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
   const [map, setMap] = useState(false);
-  const [signup, setSignup] = useState(false);
-  const auth = useLocalStorage("sign-up", "");
 
   //console.log(auth[0].token);
 
@@ -23,9 +19,6 @@ export default function Home() {
           if (token) {
             setLoading(false);
             setMap(true);
-          } else {
-            setLoading(false);
-            setSignup(true);
           }
         }, 3000);
 
@@ -42,11 +35,9 @@ export default function Home() {
 
   return (
     <>
-      <>{loading ? <Loader /> : null}</>
+      {loading ? <Loader /> : null}
 
       {map ? <Map /> : null}
-
-      {signup ? <Signup /> : null}
     </>
   );
 }

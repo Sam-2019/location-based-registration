@@ -14,6 +14,7 @@ export const Wrapper = styled.div`
 export const Load = styled.div`
   margin: auto;
   color: #000000;
+  text-align: center;
 `;
 
 export default function Loader() {
