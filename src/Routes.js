@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 import Signup from "./component/sign-up";
 import Register from "./component/register";
+import Home from "./component/Home";
 import Map from "./Map";
 import { useData } from "./Context";
 
@@ -17,19 +18,17 @@ function AppROutes() {
   return (
     <Router>
       <Switch>
-        {/* {auth ? (
-          <Route exact path="/">
-            <Map />
-          </Route>
-        ) : (
-          <Route path="/signup">
-            <Signup />
-          </Route>
-        )}
+        <Route path="/">
+          <Home />
+        </Route>
+
+        <Route path="/signup">
+          <Signup />
+        </Route>
 
         <Route path="/register">
           <Register />
-        </Route> */}
+        </Route>
       </Switch>
     </Router>
   );

@@ -1,5 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import { useHistory } from "react-router-dom";
 import "./form.css";
 
 export default function Signup() {
@@ -8,6 +9,12 @@ export default function Signup() {
     handleSubmit,
     formState: { errors }
   } = useForm();
+
+  let history = useHistory();
+
+  function handleClick() {
+    history.push("/home");
+  }
 
   const onSubmit = async (data) => {
     const array = new Uint32Array(1);

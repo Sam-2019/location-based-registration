@@ -1,4 +1,5 @@
 import React from "react";
+import Loader from "../component/Loader";
 import GMap from "./GMap";
 
 // API key of the google map
@@ -31,7 +32,7 @@ const MyComponent = ({ radius, currentLocation, currentError }) => {
   return (
     <div className="App">
       {!loadMap ? (
-        <div>Loading...</div>
+        <Loader />
       ) : (
         <GMap
           radius={radius}
