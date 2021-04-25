@@ -17,7 +17,7 @@ const Data = () => {
       if (!didCancel) {
         geolocation.getCurrentPosition(function (position) {
           const pos = [position.coords.latitude, position.coords.longitude];
-          console.log(pos);
+          // console.log(pos);
           setLat(pos[0]);
           setLong(pos[1]);
         });
