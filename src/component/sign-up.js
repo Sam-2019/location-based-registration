@@ -14,15 +14,10 @@ export default function Signup() {
     const index = window.crypto.getRandomValues(array);
 
     const userID = {
-      fname: data.fname,
-      lname: data.lname,
-      department: data.department,
       token: index[0]
     };
 
     await localStorage.setItem("sign-up", JSON.stringify(userID));
-
-    console.log(data);
   };
 
   return (
