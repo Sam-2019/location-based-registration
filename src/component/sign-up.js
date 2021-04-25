@@ -48,9 +48,9 @@ export default function Signup() {
       <select {...register("department", { required: true })}>
         <option selected disabled></option>
 
-        <option value="female">female</option>
-        <option value="male">male</option>
-        <option value="other">other</option>
+        <option value="accounts">Accounts</option>
+        <option value="supply chain">Supply Chain</option>
+        <option value="other">Other</option>
       </select>
       {errors.department && <span>This field is required</span>}
 

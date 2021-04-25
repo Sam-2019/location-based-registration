@@ -163,5 +163,5 @@ export default GMap;
 GMap.propTypes = {
   radius: PropTypes.number,
   currentLocation: PropTypes.object,
-  currentError: PropTypes.object
+  currentError: PropTypes.string
 };
