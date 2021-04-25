@@ -1,4 +1,5 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import styled from "styled-components";
 import { Wrapper } from "./Loader";
 
@@ -9,12 +10,14 @@ const SuccessItem = styled.div`
 `;
 
 export default function Success() {
+  //let history = useHistory();
+
   return (
     <Wrapper>
       <SuccessItem>
         <div> Success</div>
 
-        <div>Go to Home</div>
+        {/* <div onClick={handleClick}>Go to Home</div> */}
       </SuccessItem>
     </Wrapper>
   );

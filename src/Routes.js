@@ -20,10 +20,8 @@ function AppROutes() {
           <Signup />
         </Route>
 
-        {!auth ? <Redirect to="/signup" /> : <Home />}
-
         <Route exact path="/">
-          <Home />
+          {!auth ? <Redirect to="/signup" /> : <Home />}
         </Route>
       </Switch>
     </Router>
