@@ -21,14 +21,14 @@ const GMap = ({ radius }) => {
   };
 
   const userLocation = {
-    lat: lat,
-    lng: long
+    // lat: lat,
+    // lng: long
 
     // lat: 5.755128,
     // lng: 0.050256
 
-    // lat: 5.754487382950839,
-    // lng: 0.050190650641205724
+    lat: 5.754487382950839,
+    lng: 0.050190650641205724
   };
 
   useEffect(() => {
