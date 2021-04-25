@@ -2,10 +2,12 @@ import React, { useEffect, useRef, useState } from "react";
 import PropTypes from "prop-types";
 import { useData } from "../Context";
 import Register from "../component/register";
+import "./nothing.css";
 
 const GMap = ({ radius }) => {
   const { lat, long } = useData();
   const [distance, setDistance] = useState(0);
+  const [buttonState, setButtonState] = useState(false);
 
   const googleMapRef = useRef(null);
   let googleMap = null;
@@ -24,8 +26,8 @@ const GMap = ({ radius }) => {
     // lat: lat,
     // lng: long
 
-    // lat: 5.755128,
-    // lng: 0.050256
+    //  lat: 5.755128,
+    //  lng: 0.050256
 
     lat: 5.754487382950839,
     lng: 0.050190650641205724
@@ -129,6 +131,10 @@ const GMap = ({ radius }) => {
 
       if (!didCancel) {
         setDistance(distanceMeters);
+
+        if (distanceMeters === radius) {
+          setButtonState(true);
+        }
       }
 
       // console.log("Distance in Meters: ", distanceMeters);
@@ -145,16 +151,58 @@ const GMap = ({ radius }) => {
     <div>
       <div ref={googleMapRef} style={containerStyle} />
 
-      {/* <p>Current position:</p>
-      <Location location={currentLocation} error={currentError} /> */}
-
-      <div style={{ marginTop: 10, marginBottom: 10 }}>
-        You are {Math.round(distance)} meters away from Premises
+      <div
+        style={{
+          marginTop: 10,
+          marginBottom: 10,
+          display: "flex",
+          justifyContent: "center",
+          margin: "auto",
+          padding: "10px 0"
+        }}
+      >
+        You are {Math.round(distance)} meters away from Premises.
       </div>
 
       <div>
-        {distance >= radius ? "Outside range. Cant Register!" : <Register />}
+        {distance >= radius ? (
+          <div
+            style={{
+              marginTop: 10,
+              marginBottom: 10,
+              display: "flex",
+              justifyContent: "center",
+              margin: "auto",
+              padding: "10px 0"
+            }}
+          >
+            Not eligible to Register!
+          </div>
+        ) : null}
       </div>
+
+      <div>
+        {distance >= radius ? null : (
+          <div id="floating-panel">
+            <button id="register" disabled={buttonState}>
+              Register
+            </button>
+          </div>
+        )}
+      </div>
+
+      <div id="floating-panel">
+        <button id="drop">FInd Me</button>
+      </div>
+
+      {/* <p>Current position:</p>
+      <Location location={currentLocation} error={currentError} /> */}
+
+      {/* <div style={{ marginTop: 10, marginBottom: 10 }}>
+        You are {Math.round(distance)} meters away from Premises
+      </div> */}
+
+      {/* <div>{distance >= radius ? "Outside range. Cant Register!" : null}</div> */}
     </div>
   );
 };
