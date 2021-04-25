@@ -8,22 +8,28 @@ import {
 import Signup from "./component/sign-up";
 import Register from "./component/register";
 import Map from "./Map";
+import { useData } from "./Context";
 
 function AppROutes() {
+  const { auth } = useData();
+
+  console.log(auth);
   return (
     <Router>
       <Switch>
-        <Route exact path="/">
-          <Map />
-        </Route>
-
-        <Route path="/signup">
-          <Signup />
-        </Route>
+        {/* {auth ? (
+          <Route exact path="/">
+            <Map />
+          </Route>
+        ) : (
+          <Route path="/signup">
+            <Signup />
+          </Route>
+        )}
 
         <Route path="/register">
           <Register />
-        </Route>
+        </Route> */}
       </Switch>
     </Router>
   );
