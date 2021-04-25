@@ -2,12 +2,13 @@ import React, { useEffect, useRef, useState } from "react";
 import PropTypes from "prop-types";
 import { useData } from "../Context";
 import Register from "../component/register";
+import Success from "../component/Success";
 import "./nothing.css";
 
 const GMap = ({ radius }) => {
   const { lat, long } = useData();
   const [distance, setDistance] = useState(0);
-  const [buttonState, setButtonState] = useState(false);
+  const [form, setForm] = useState(false);
 
   const googleMapRef = useRef(null);
   let googleMap = null;
@@ -26,11 +27,11 @@ const GMap = ({ radius }) => {
     // lat: lat,
     // lng: long
 
-    //  lat: 5.755128,
-    //  lng: 0.050256
+    lat: 5.755128,
+    lng: 0.050256
 
-    lat: 5.754487382950839,
-    lng: 0.050190650641205724
+    //   lat: 5.754487382950839,
+    //  lng: 0.050190650641205724
   };
 
   useEffect(() => {
@@ -147,6 +148,14 @@ const GMap = ({ radius }) => {
     };
   }, []);
 
+  function closeRegister() {
+    setForm(false);
+  }
+
+  function showRegister() {
+    setForm(true);
+  }
+
   return (
     <div>
       <div ref={googleMapRef} style={containerStyle} />
@@ -184,7 +193,12 @@ const GMap = ({ radius }) => {
       <div>
         {distance >= radius ? null : (
           <div id="floating-panel">
-            <button id="register" disabled={buttonState}>
+            <button
+              id="register"
+              onClick={() => {
+                showRegister(false);
+              }}
+            >
               Register
             </button>
           </div>
@@ -203,6 +217,8 @@ const GMap = ({ radius }) => {
       </div> */}
 
       {/* <div>{distance >= radius ? "Outside range. Cant Register!" : null}</div> */}
+
+      {form ? <Register closeRegister={closeRegister} /> : null}
     </div>
   );
 };
