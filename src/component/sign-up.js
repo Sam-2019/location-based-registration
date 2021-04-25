@@ -13,14 +13,14 @@ export default function Signup() {
     const array = new Uint32Array(1);
     const index = window.crypto.getRandomValues(array);
 
-    const person = {
+    const userID = {
       fname: data.fname,
       lname: data.lname,
       department: data.department,
       token: index[0]
     };
 
-    await localStorage.setItem("fastcheckout", JSON.stringify(person));
+    await localStorage.setItem("sign-up", JSON.stringify(userID));
 
     console.log(data);
   };
@@ -48,9 +48,9 @@ export default function Signup() {
       <select {...register("department", { required: true })}>
         <option selected disabled></option>
 
-        <option value="accounts">Accounts</option>
-        <option value="supply chain">Supply Chain</option>
-        <option value="other">Other</option>
+        <option value="Accounts">Accounts</option>
+        <option value="Supply Chain">Supply Chain</option>
+        <option value="Other">Other</option>
       </select>
       {errors.department && <span>This field is required</span>}
 
