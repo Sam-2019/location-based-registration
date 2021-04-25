@@ -7,6 +7,8 @@ import Signup from "./component/sign-up";
 import Register from "./component/register";
 import Success from "./component/registerSuccess";
 
+import useLocalStorage from "./hooks/useLocalStorage";
+
 const radius = 17.18;
 
 const Map = () => {
@@ -30,16 +32,22 @@ const Map = () => {
 
   //console.log(isWatchinForLocation.toString());
 
+  const loginToken = localStorage.getItem("sign-up");
+
+  console.log(loginToken);
+
   return (
     <>
-      <GoogleMap
-        radius={radius}
-        currentLocation={currentLocation}
-        currentError={currentError}
-        isWatchinForLocation={isWatchinForLocation}
-      />
-
-      <Signup />
+      {loginToken ? (
+        <GoogleMap
+          radius={radius}
+          currentLocation={currentLocation}
+          currentError={currentError}
+          isWatchinForLocation={isWatchinForLocation}
+        />
+      ) : (
+        <Signup />
+      )}
     </>
   );
 };
