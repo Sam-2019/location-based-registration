@@ -161,63 +161,74 @@ const GMap = ({ radius }) => {
 
       <div
         style={{
-          marginTop: 10,
-          marginBottom: 10,
-          display: "flex",
-          justifyContent: "center",
-          margin: "auto",
-          padding: "10px 0"
+          borderRadius: "20px 20px 0 0",
+          position: "relative",
+          backgroundColor: "white",
+          padding: "10px",
+          margin: "-20px 0 0 0",
+          height: "auto"
         }}
       >
-        You are {Math.round(distance)} meters away from Premises.
-      </div>
+        <div
+          style={{
+            marginTop: 10,
+            marginBottom: 10,
+            display: "flex",
+            justifyContent: "center",
+            margin: "auto",
+            padding: "10px 0"
+          }}
+        >
+          You are {Math.round(distance)} meters away from Premises.
+        </div>
 
-      <div>
-        {distance >= radius ? (
-          <div
-            style={{
-              marginTop: 10,
-              marginBottom: 10,
-              display: "flex",
-              justifyContent: "center",
-              margin: "auto",
-              padding: "10px 0"
-            }}
-          >
-            Not eligible to Register!
-          </div>
-        ) : null}
-      </div>
-
-      <div>
-        {distance >= radius ? null : (
-          <div id="floating-panel">
-            <button
-              id="register"
-              onClick={() => {
-                showRegister(false);
+        <div>
+          {distance >= radius ? (
+            <div
+              style={{
+                marginTop: 10,
+                marginBottom: 10,
+                display: "flex",
+                justifyContent: "center",
+                margin: "auto",
+                padding: "10px 0"
               }}
             >
-              Register
-            </button>
-          </div>
-        )}
-      </div>
+              Not eligible to Register!
+            </div>
+          ) : null}
+        </div>
 
-      <div id="floating-panel">
-        <button id="drop">FInd Me</button>
-      </div>
+        <div>
+          {distance >= radius ? null : (
+            <div id="floating-panel">
+              <button
+                id="register"
+                onClick={() => {
+                  showRegister(false);
+                }}
+              >
+                Register
+              </button>
+            </div>
+          )}
+        </div>
 
-      {/* <p>Current position:</p>
+        <div id="floating-panel">
+          <button id="drop">FInd Me</button>
+        </div>
+
+        {/* <p>Current position:</p>
       <Location location={currentLocation} error={currentError} /> */}
 
-      {/* <div style={{ marginTop: 10, marginBottom: 10 }}>
+        {/* <div style={{ marginTop: 10, marginBottom: 10 }}>
         You are {Math.round(distance)} meters away from Premises
       </div> */}
 
-      {/* <div>{distance >= radius ? "Outside range. Cant Register!" : null}</div> */}
+        {/* <div>{distance >= radius ? "Outside range. Cant Register!" : null}</div> */}
 
-      {form ? <Register closeRegister={closeRegister} /> : null}
+        {form ? <Register closeRegister={closeRegister} /> : null}
+      </div>
     </div>
   );
 };
