@@ -15,7 +15,7 @@ const Wrapper = styled.div`
   align-content: center;
   background-color: blue;
   padding: 0 10px;
-  margin: 10px;
+  margin: 5px;
 `;
 
 const Register = ({ closeRegister }) => {
@@ -55,6 +55,8 @@ const Register = ({ closeRegister }) => {
         </select>
 
         <input type="submit" />
+
+        <input type="button" value="Cancel" onClick={closeRegister} />
       </form>
     </Wrapper>
   );
