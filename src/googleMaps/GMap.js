@@ -201,22 +201,18 @@ const GMap = ({ radius }) => {
 
         <div>
           {distance >= radius ? null : (
-            <div id="floating-panel">
-              <button
-                id="register"
-                onClick={() => {
-                  showRegister(false);
-                }}
-              >
-                Register
-              </button>
-            </div>
+            <button
+              id="register"
+              onClick={() => {
+                showRegister(false);
+              }}
+            >
+              Register
+            </button>
           )}
         </div>
 
-        <div id="floating-panel">
-          <button id="drop">FInd Me</button>
-        </div>
+        <button id="drop">FInd Me</button>
 
         {/* <p>Current position:</p>
       <Location location={currentLocation} error={currentError} /> */}

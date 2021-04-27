@@ -1,28 +1,13 @@
-#floating-panel {
-  z-index: 5;
-  margin: 0 0 10px 0;
-}
-
 #drop {
-  width: 100%;
   background-color: #fff;
-  padding: 2.5px;
   border: 1px solid #999;
-  text-align: center;
-  font-family: "Roboto", "sans-serif";
-  line-height: 30px;
 }
 
-button#register {
-  width: 100%;
+#register {
   background-color: #2b8f0a;
-  padding: 2.5px;
   border: 1px solid #999;
-  text-align: center;
-  font-family: "Roboto", "sans-serif";
-  line-height: 30px;
 }
 
-button#register:disabled {
+#register:disabled {
   background-color: red;
 }

@@ -54,9 +54,9 @@ const Register = ({ closeRegister }) => {
           <option value="female">female</option>
         </select>
 
-        <input type="submit" />
+        <button onClick={handleSubmit(onSubmit)}>Submit</button>
 
-        <input type="button" value="Cancel" onClick={closeRegister} />
+        <button onClick={closeRegister}>Cancel</button>
       </form>
     </Wrapper>
   );
