@@ -159,6 +159,14 @@ const GMap = ({ radius }) => {
     <div>
       <div ref={googleMapRef} style={containerStyle} />
 
+      <div className="new">
+        <div className="distance">Distance</div>
+
+        <div className="number"> {Math.round(distance)} </div>
+
+        <div className="meters">Meters</div>
+      </div>
+
       <div
         style={{
           borderRadius: "20px 20px 0 0",
