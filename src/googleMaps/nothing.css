@@ -58,11 +58,6 @@
   width: auto;
   padding: 10px 10px;
   transition: all ease 0.7s;
-  border: 1px solid red;
-  widows: auto;
-  padding: 10px;
-  background-color: #cccfcb59;
-  border-radius: 10px;
   margin: 15px 20px;
 }
 
@@ -77,6 +72,15 @@
   width: 100%;
 }
 
+#register-div {
+  background-color: #2b8f0a;
+  border: 1px solid transparent;
+  width: 100%;
+  padding: 15px 0;
+  text-align: center;
+  border-radius: 0 0 10px 10px;
+}
+
 #cant-register {
   border: 1px solid transparent;
   width: 100%;
@@ -86,7 +90,10 @@
   display: flex;
   align-items: center;
   text-align: center;
-  padding: 10px;
+  padding: 5px 10px;
+  border: 1px solid red;
+  background-color: #cccfcb59;
+  border-radius: 10px 10px 0 0;
 }
 
 .svg {
@@ -100,11 +107,28 @@
 }
 
 .premises {
+  padding: 5px 0 5px 0;
 }
 
 .within-premises {
+  padding: 0px 0 5px 0;
 }
 
 #register:disabled {
   background-color: red;
+}
+
+.location-marker {
+  position: fixed;
+  bottom: 160px;
+  right: 0;
+  padding: 10px 10px;
+  transition: all ease 0.7s;
+  border: 1px solid red;
+  padding: 10px;
+  background-color: #cccfcb59;
+  border-radius: 10px;
+  margin: 10px 20px;
+  display: flex;
+  justify-content: center;
 }
