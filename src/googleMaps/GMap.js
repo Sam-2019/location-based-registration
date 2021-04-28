@@ -167,43 +167,14 @@ const GMap = ({ radius }) => {
         <div className="meters">Meters</div>
       </div>
 
-      <div
-        style={{
-          borderRadius: "20px 20px 0 0",
-          position: "relative",
-          backgroundColor: "white",
-          padding: "10px",
-          margin: "-20px 0 0 0",
-          height: "auto"
-        }}
-      >
-        <div
-          style={{
-            marginTop: 10,
-            marginBottom: 10,
-            display: "flex",
-            justifyContent: "center",
-            margin: "auto",
-            padding: "10px 0"
-          }}
-        >
+      <div className="text-container">
+        <div className="distance-text">
           You are {Math.round(distance)} meters away from Premises.
         </div>
 
         <div>
           {distance >= radius ? (
-            <div
-              style={{
-                marginTop: 10,
-                marginBottom: 10,
-                display: "flex",
-                justifyContent: "center",
-                margin: "auto",
-                padding: "10px 0"
-              }}
-            >
-              Not eligible to Register!
-            </div>
+            <div className="cant-register">Not eligible to Register!</div>
           ) : null}
         </div>
 
