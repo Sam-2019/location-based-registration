@@ -89,29 +89,29 @@
 .text-area {
   display: flex;
   align-items: center;
-  text-align: center;
   padding: 5px 10px;
-  border: 1px solid red;
-  background-color: #cccfcb59;
+  background-color: #ffffff;
   border-radius: 10px 10px 0 0;
 }
 
 .svg {
-  width: 20%;
-  border: 1px solid red;
+  width: 25%;
+  text-align: center;
 }
 
 .premisesXwithin {
   width: 80%;
-  border: 1px solid red;
 }
 
 .premises {
   padding: 5px 0 5px 0;
+  font-weight: 500;
+  font-size: 23px;
 }
 
 .within-premises {
   padding: 0px 0 5px 0;
+  font-size: 15px;
 }
 
 #register:disabled {
@@ -124,11 +124,10 @@
   right: 0;
   padding: 10px 10px;
   transition: all ease 0.7s;
-  border: 1px solid red;
   padding: 10px;
-  background-color: #cccfcb59;
+  background-color: #ffffff;
   border-radius: 10px;
-  margin: 10px 20px;
+  margin: 10px 30px;
   display: flex;
   justify-content: center;
 }
