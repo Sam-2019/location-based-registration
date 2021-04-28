@@ -167,14 +167,10 @@ const GMap = ({ radius }) => {
         <div className="meters">Meters</div>
       </div>
 
-      <div>
+      <div id="info-button">
         {distance >= radius ? (
           <div className="cant-register">Not eligible to Register!</div>
-        ) : null}
-      </div>
-
-      <div>
-        {distance >= radius ? null : (
+        ) : (
           <button
             id="register"
             onClick={() => {

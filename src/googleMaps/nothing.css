@@ -3,20 +3,6 @@
   height: 100vh;
 }
 
-#drop {
-  background-color: #fff;
-  border: 1px solid #999;
-}
-
-#register {
-  background-color: #2b8f0a;
-  border: 1px solid #999;
-}
-
-#register:disabled {
-  background-color: red;
-}
-
 .distance-overlay {
   position: absolute;
   top: 0;
@@ -62,4 +48,34 @@
   padding: 10px;
   margin: -20px 0 0 0;
   height: auto;
+}
+
+#info-button {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: auto;
+  padding: 10px 10px;
+  transition: all ease 0.7s;
+  border: 1px solid red;
+  widows: auto;
+}
+
+#drop {
+  background-color: #fff;
+  border: 1px solid #999;
+}
+
+#register {
+  background-color: #2b8f0a;
+  border: 1px solid transparent;
+  widows: 100%;
+}
+
+.cant-register {
+}
+
+#register:disabled {
+  background-color: red;
 }
