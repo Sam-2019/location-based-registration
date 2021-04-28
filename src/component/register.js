@@ -16,6 +16,7 @@ const Wrapper = styled.div`
   background-color: blue;
   padding: 0 10px;
   margin: 5px;
+  z-index: 20;
 `;
 
 const Register = ({ closeRegister }) => {
