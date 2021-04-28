@@ -60,6 +60,10 @@
   transition: all ease 0.7s;
   border: 1px solid red;
   widows: auto;
+  padding: 10px;
+  background-color: #cccfcb59;
+  border-radius: 10px;
+  margin: 15px 20px;
 }
 
 #drop {
@@ -70,10 +74,35 @@
 #register {
   background-color: #2b8f0a;
   border: 1px solid transparent;
-  widows: 100%;
+  width: 100%;
 }
 
-.cant-register {
+#cant-register {
+  border: 1px solid transparent;
+  width: 100%;
+}
+
+.text-area {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  padding: 10px;
+}
+
+.svg {
+  width: 20%;
+  border: 1px solid red;
+}
+
+.premisesXwithin {
+  width: 80%;
+  border: 1px solid red;
+}
+
+.premises {
+}
+
+.within-premises {
 }
 
 #register:disabled {
