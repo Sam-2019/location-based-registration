@@ -159,7 +159,7 @@ const GMap = ({ radius }) => {
     <div>
       <div ref={googleMapRef} style={containerStyle} />
 
-      <div className="new">
+      <div className="distance-overlay">
         <div className="distance">Distance</div>
 
         <div className="number"> {Math.round(distance)} </div>

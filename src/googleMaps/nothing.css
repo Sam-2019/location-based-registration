@@ -12,13 +12,33 @@
   background-color: red;
 }
 
-.new {
+.distance-overlay {
   position: absolute;
   top: 0;
   z-index: 20;
-  color: red;
-  padding: 20px 10px;
+  color: rgb(255, 255, 255);
+  width: auto;
+  padding: 20px 8px;
   margin: 20px 10px;
-  background-color: #2b8f0a;
   border-radius: 10px;
+  background-color: #ffffff2b;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  -webkit-transition: all ease 0.7s;
+  text-align: center;
+}
+
+.distance {
+  font-size: 25px;
+  border: 1px solid red;
+}
+
+.number {
+  font-size: 55px;
+  border: 1px solid red;
+}
+
+.meters {
+  font-size: 25px;
+  border: 1px solid red;
 }
