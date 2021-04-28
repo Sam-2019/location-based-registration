@@ -157,7 +157,7 @@ const GMap = ({ radius }) => {
 
   return (
     <div>
-      <div ref={googleMapRef} style={containerStyle} />
+      <div ref={googleMapRef} id="mapContainer" />
 
       <div className="distance-overlay">
         <div className="distance">Distance</div>
@@ -167,43 +167,26 @@ const GMap = ({ radius }) => {
         <div className="meters">Meters</div>
       </div>
 
-      <div className="text-container">
-        <div className="distance-text">
-          You are {Math.round(distance)} meters away from Premises.
-        </div>
-
-        <div>
-          {distance >= radius ? (
-            <div className="cant-register">Not eligible to Register!</div>
-          ) : null}
-        </div>
-
-        <div>
-          {distance >= radius ? null : (
-            <button
-              id="register"
-              onClick={() => {
-                showRegister(false);
-              }}
-            >
-              Register
-            </button>
-          )}
-        </div>
-
-        <button id="drop">FInd Me</button>
-
-        {/* <p>Current position:</p>
-      <Location location={currentLocation} error={currentError} /> */}
-
-        {/* <div style={{ marginTop: 10, marginBottom: 10 }}>
-        You are {Math.round(distance)} meters away from Premises
-      </div> */}
-
-        {/* <div>{distance >= radius ? "Outside range. Cant Register!" : null}</div> */}
-
-        {form ? <Register closeRegister={closeRegister} /> : null}
+      <div>
+        {distance >= radius ? (
+          <div className="cant-register">Not eligible to Register!</div>
+        ) : null}
       </div>
+
+      <div>
+        {distance >= radius ? null : (
+          <button
+            id="register"
+            onClick={() => {
+              showRegister(false);
+            }}
+          >
+            Register
+          </button>
+        )}
+      </div>
+
+      {form ? <Register closeRegister={closeRegister} /> : null}
     </div>
   );
 };
@@ -214,4 +197,44 @@ GMap.propTypes = {
   radius: PropTypes.number,
   currentLocation: PropTypes.object,
   currentError: PropTypes.string
+};
+
+const TextContainer = () => {
+  <div className="text-container">
+    <div className="distance-text">
+      You are {Math.round(distance)} meters away from Premises.
+    </div>
+
+    <div>
+      {distance >= radius ? (
+        <div className="cant-register">Not eligible to Register!</div>
+      ) : null}
+    </div>
+
+    <div>
+      {distance >= radius ? null : (
+        <button
+          id="register"
+          onClick={() => {
+            showRegister(false);
+          }}
+        >
+          Register
+        </button>
+      )}
+    </div>
+
+    <button id="drop">FInd Me</button>
+
+    {/* <p>Current position:</p>
+<Location location={currentLocation} error={currentError} /> */}
+
+    {/* <div style={{ marginTop: 10, marginBottom: 10 }}>
+  You are {Math.round(distance)} meters away from Premises
+</div> */}
+
+    {/* <div>{distance >= radius ? "Outside range. Cant Register!" : null}</div> */}
+
+    {form ? <Register closeRegister={closeRegister} /> : null}
+  </div>;
 };
