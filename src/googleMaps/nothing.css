@@ -66,24 +66,31 @@
   border: 1px solid #999;
 }
 
+#button {
+  border-radius: 0 0 20px 20px;
+  background-color: #2b8f0a;
+}
+
 #register {
   background-color: #2b8f0a;
   border: 1px solid transparent;
   width: 100%;
+  margin: 5px 0 0 0;
+}
+
+#cant-register {
+  background-color: #cb2929;
+  border: 1px solid transparent;
+  width: 100%;
+  margin: 5px 0 0 0;
 }
 
 #register-div {
   background-color: #2b8f0a;
   border: 1px solid transparent;
   width: 100%;
-  padding: 15px 0;
-  text-align: center;
+  align-items: center;
   border-radius: 0 0 10px 10px;
-}
-
-#cant-register {
-  border: 1px solid transparent;
-  width: 100%;
 }
 
 .text-area {
@@ -91,7 +98,7 @@
   align-items: center;
   padding: 5px 10px;
   background-color: #ffffff;
-  border-radius: 10px 10px 0 0;
+  border-radius: 10px 10px;
 }
 
 .svg {
