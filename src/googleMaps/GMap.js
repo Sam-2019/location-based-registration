@@ -23,14 +23,14 @@ const GMap = ({ radius }) => {
   };
 
   const userLocation = {
-    // lat: lat,
+    //  lat: lat,
     // lng: long
 
-    lat: 5.755128,
-    lng: 0.050256
+    // lat: 5.755128,
+    // lng: 0.050256
 
-    //   lat: 5.754487382950839,
-    //  lng: 0.050190650641205724
+    lat: 5.754487382950839,
+    lng: 0.050190650641205724
   };
 
   useEffect(() => {
@@ -114,11 +114,10 @@ const GMap = ({ radius }) => {
     geodesicPoly.setPath(path);
   };
 
-  // console.log(center);
-  // console.log(currentLocation);
-
   useEffect(() => {
     let didCancel = false;
+
+    console.log();
 
     async function compute() {
       const to = await new google.maps.LatLng(center);
@@ -133,7 +132,6 @@ const GMap = ({ radius }) => {
         setDistance(distanceMeters);
 
         if (distanceMeters === radius) {
-          setButtonState(true);
         }
       }
 
@@ -226,43 +224,3 @@ const ExclamationTriangle = () => (
     <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
   </svg>
 );
-
-const TextContainer = () => {
-  <div className="text-container">
-    <div className="distance-text">
-      You are {Math.round(distance)} meters away from Premises.
-    </div>
-
-    <div>
-      {distance >= radius ? (
-        <div className="cant-register">Not eligible to Register!</div>
-      ) : null}
-    </div>
-
-    <div>
-      {distance >= radius ? null : (
-        <button
-          id="register"
-          onClick={() => {
-            showRegister(false);
-          }}
-        >
-          Register
-        </button>
-      )}
-    </div>
-
-    <button id="drop">FInd Me</button>
-
-    {/* <p>Current position:</p>
-<Location location={currentLocation} error={currentError} /> */}
-
-    {/* <div style={{ marginTop: 10, marginBottom: 10 }}>
-  You are {Math.round(distance)} meters away from Premises
-</div> */}
-
-    {/* <div>{distance >= radius ? "Outside range. Cant Register!" : null}</div> */}
-
-    {form ? <Register closeRegister={closeRegister} /> : null}
-  </div>;
-};
