@@ -1,6 +1,6 @@
 import React from "react";
 
-const SVG = () => {
+const LocationSVG = () => {
   return (
     <svg
       width="48px"
@@ -66,4 +66,4 @@ const SVG = () => {
   );
 };
 
-export default SVG;
+export default LocationSVG;
