@@ -138,3 +138,9 @@
   display: flex;
   justify-content: center;
 }
+
+@media (max-width: 320px) {
+  .premises {
+    font-size: 20px;
+  }
+}
