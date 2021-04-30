@@ -17,20 +17,20 @@ const LocationSVG = () => {
           y2="1"
           gradientUnits="objectBoundingBox"
         >
-          <stop offset="0" stop-color="#f80" />
-          <stop offset="1" stop-color="#db2903" />
+          <stop offset="0" stopColor="#f80" />
+          <stop offset="1" stopColor="#db2903" />
         </linearGradient>
         <clipPath id="clip-Place">
           <rect width="48" height="48" />
         </clipPath>
       </defs>
-      <g id="Place" clip-path="url(#clip-Place)">
+      <g id="Place" clipPath="url(#clip-Place)">
         <rect width="48" height="48" fill="rgba(255,255,255,0)" />
         <g id="Place-2" data-name="Place" transform="translate(7 5)">
           <g
             id="Icon"
             transform="translate(0 23)"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
             fill="url(#linear-gradient)"
           >
             <path
@@ -48,7 +48,7 @@ const LocationSVG = () => {
             data-name="Icon"
             transform="translate(1 0)"
             fill="rgba(255,169,125,0.7)"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
           >
             <path
               d="M13,33.537a1,1,0,0,1-.642-.233l-.091-.086-.412-.446-.8-.881-.776-.867-.2-.225,0-.007h0L9.9,30.6l-.733-.845-.7-.83c-.253-.3-.474-.568-.677-.816l-.649-.8c-.323-.4-.632-.8-.92-1.174l-.578-.764-.55-.75c-.186-.259-.357-.5-.521-.735l-.493-.721C1.371,19.138,0,15.769,0,13.148a13.111,13.111,0,0,1,3.845-9.34,12.907,12.907,0,0,1,18.309,0A13.11,13.11,0,0,1,26,13.148c0,2.708-1.453,6.2-4.317,10.382l-.508.727c-.6.851-1.276,1.746-2,2.66l-.634.793-.133.163-.2.239-.676.815-.7.829L16.1,30.6q-.186.213-.377.428l-.775.865-.8.88-.412.445c-.017.018-.034.035-.052.051A1,1,0,0,1,13,33.537ZM13,7a6,6,0,1,0,6,6A6.006,6.006,0,0,0,13,7Z"
