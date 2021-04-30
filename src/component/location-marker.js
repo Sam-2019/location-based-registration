@@ -1,4 +1,5 @@
 import React from "react";
+import "./location-marker.css";
 
 const LocationMarker = () => {
   return (

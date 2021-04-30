@@ -1,0 +1,12 @@
+.location-marker {
+  align-items: center;
+}
+
+.location-marker:hover::before {
+  content: " Find Me ";
+  width: 62px;
+}
+
+.location-marker:active {
+  width: auto;
+}
