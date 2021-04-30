@@ -13,7 +13,7 @@ const Wrapper = styled.div`
   top: 0;
   display: flex;
   align-content: center;
-  background-color: blue;
+  background-color: white;
   padding: 0 10px;
   margin: 5px;
   z-index: 20;
