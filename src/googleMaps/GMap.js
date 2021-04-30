@@ -8,7 +8,9 @@ import LocationMarker from "../component/location-marker";
 import DistanceOverlay from "../component/distance-overlay";
 
 const GMap = ({ radius }) => {
-  const { lat, long } = useData();
+  const { lat, long, error } = useData();
+
+  console.log(lat, long, error);
   const [distance, setDistance] = useState(0);
   const [form, setForm] = useState(false);
 
