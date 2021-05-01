@@ -7,8 +7,6 @@ const Data = () => {
   const [lat, setLat] = useState(0);
   const [long, setLong] = useState(0);
 
-  console.log(auth);
-
   // Success handler for geolocation's `getCurrentPosition` method
   const handleSuccess = (pos) => {
     const { latitude, longitude } = pos.coords;
