@@ -1,11 +1,37 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import { gql, useMutation } from "@apollo/client";
 import { Wrapper } from "./Loader";
 import Success from "./Success";
 import "./form.css";
 
+const SIGNUP = gql`
+  mutation signup(
+    $firstname: String!
+    $lastname: String!
+    $department: String!
+    $date: String!
+  ) {
+    signup(
+      firstname: $firstname
+      lastname: $lastname
+      department: $department
+      date: $date
+    ) {
+      id
+      firstname
+      lastname
+      department
+      date
+    }
+  }
+`;
+
 export default function Signup() {
   const [state, setState] = React.useState(true);
+
+  const [signup] = useMutation(SIGNUP);
+
   const {
     register,
     handleSubmit,
@@ -13,6 +39,7 @@ export default function Signup() {
   } = useForm();
 
   const onSubmit = async (data) => {
+    // console.log(data);
     const array = new Uint32Array(1);
     const index = window.crypto.getRandomValues(array);
 
@@ -23,6 +50,15 @@ export default function Signup() {
     await localStorage.setItem("sign-up", JSON.stringify(userID));
 
     setState(false);
+
+    await signup({
+      variables: {
+        firstname: data.firstName,
+        lastname: data.lastName,
+        department: data.department,
+        date: String(Date.now())
+      }
+    });
   };
 
   const Form = () => (
@@ -31,14 +67,14 @@ export default function Signup() {
         <h5> Signup </h5>
         <label>First Name</label>
         <input
-          {...register("fname", { required: true })}
+          {...register("firstName", { required: true })}
           placeholder="First Name"
         />
         {errors.fname && <span>This field is required</span>}
 
         <label>Last Name</label>
         <input
-          {...register("lname", { required: true })}
+          {...register("lastName", { required: true })}
           placeholder="Last Name"
         />
         {errors.lname && <span>This field is required</span>}
