@@ -44,13 +44,15 @@ export default function Signup() {
   const onSubmit = async (data) => {
     // console.log(data);
     const array = new Uint32Array(1);
+
     const index = window.crypto.getRandomValues(array);
+    //console.log(index);
 
     const userID = {
       token: index[0]
     };
 
-    //console.log(typeof userID.token);
+    //console.log(userID.token);
 
     await localStorage.setItem("sign-up", JSON.stringify(userID));
 
