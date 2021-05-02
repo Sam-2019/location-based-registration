@@ -7,7 +7,7 @@ import "./form.css";
 
 const SIGNUP = gql`
   mutation signup(
-    $userID: String!
+    $userID: ID!
     $firstname: String!
     $lastname: String!
     $department: String!
@@ -58,7 +58,7 @@ export default function Signup() {
 
     await signup({
       variables: {
-        userID: String(userID.token),
+        userID: userID.token,
         firstname: data.firstName,
         lastname: data.lastName,
         department: data.department,
