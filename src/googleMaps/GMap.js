@@ -8,7 +8,7 @@ import LocationMarker from "../component/location-marker";
 import DistanceOverlay from "../component/distance-overlay";
 
 const GMap = ({ radius }) => {
-  const { lat, long, error } = useData();
+  const { lat, long, error, auth } = useData();
 
   console.log(lat, long, error);
   const [distance, setDistance] = useState(0);
@@ -150,6 +150,7 @@ const GMap = ({ radius }) => {
   }
 
   function showRegister() {
+    console.log(auth.token);
     setForm(true);
   }
 
