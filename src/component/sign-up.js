@@ -7,18 +7,21 @@ import "./form.css";
 
 const SIGNUP = gql`
   mutation signup(
+    $userID: String!
     $firstname: String!
     $lastname: String!
     $department: String!
     $date: String!
   ) {
     signup(
+      userID: $userID
       firstname: $firstname
       lastname: $lastname
       department: $department
       date: $date
     ) {
       id
+      userID
       firstname
       lastname
       department
@@ -47,12 +50,15 @@ export default function Signup() {
       token: index[0]
     };
 
+    //console.log(typeof userID.token);
+
     await localStorage.setItem("sign-up", JSON.stringify(userID));
 
     setState(false);
 
     await signup({
       variables: {
+        userID: String(userID.token),
         firstname: data.firstName,
         lastname: data.lastName,
         department: data.department,
