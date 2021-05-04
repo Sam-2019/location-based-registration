@@ -30,10 +30,7 @@ const SIGNUP = gql`
 export default function Signup() {
   const [state, setState] = React.useState(true);
 
-  const [
-    signup,
-    { loading: mutationLoading, error: mutationError }
-  ] = useMutation(SIGNUP);
+  const [signup, { data }] = useMutation(SIGNUP);
 
   const {
     register,
@@ -56,8 +53,6 @@ export default function Signup() {
 
     await localStorage.setItem("sign-up", JSON.stringify(userID));
 
-    setState(false);
-
     await signup({
       variables: {
         token: String(userID.token),
@@ -67,6 +62,10 @@ export default function Signup() {
         // date: String(Date.now())
       }
     });
+
+    // await saveID();
+
+    setState(false);
   };
 
   const Form = () => (
@@ -98,8 +97,6 @@ export default function Signup() {
         {errors.department && <span>This field is required</span>}
 
         <input type="submit" />
-        {mutationLoading && <p>Loading...</p>}
-        {mutationError && <p>Error :( Please try again</p>}
       </form>
     </Wrapper>
   );

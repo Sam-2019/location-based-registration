@@ -9,10 +9,9 @@ import DistanceOverlay from "../component/distance-overlay";
 import { gql, useMutation } from "@apollo/client";
 
 const REGISTER = gql`
-  mutation register($user: ID!) {
-    register(user: $user) {
+  mutation register($user: ID!, $token: String!) {
+    register(user: $user, token: $token) {
       id
-      date
     }
   }
 `;
@@ -167,7 +166,8 @@ const GMap = ({ radius }) => {
 
     registerNow({
       variables: {
-        user: auth
+        user: auth,
+        token: auth
       }
     });
   }
