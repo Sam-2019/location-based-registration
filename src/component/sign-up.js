@@ -7,25 +7,22 @@ import "./form.css";
 
 const SIGNUP = gql`
   mutation signup(
-    $userID: ID!
+    $token: String!
     $firstname: String!
     $lastname: String!
     $department: String!
-    $date: String!
   ) {
     signup(
-      userID: $userID
+      token: $token
       firstname: $firstname
       lastname: $lastname
       department: $department
-      date: $date
     ) {
       id
-      userID
+      token
       firstname
       lastname
       department
-      date
     }
   }
 `;
@@ -33,7 +30,10 @@ const SIGNUP = gql`
 export default function Signup() {
   const [state, setState] = React.useState(true);
 
-  const [signup] = useMutation(SIGNUP);
+  const [
+    signup,
+    { loading: mutationLoading, error: mutationError }
+  ] = useMutation(SIGNUP);
 
   const {
     register,
@@ -60,11 +60,11 @@ export default function Signup() {
 
     await signup({
       variables: {
-        userID: userID.token,
+        token: String(userID.token),
         firstname: data.firstName,
         lastname: data.lastName,
-        department: data.department,
-        date: String(Date.now())
+        department: data.department
+        // date: String(Date.now())
       }
     });
   };

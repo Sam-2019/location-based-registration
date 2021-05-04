@@ -6,6 +6,16 @@ import LocationSVG from "../component/locationSVG";
 import "./nothing.css";
 import LocationMarker from "../component/location-marker";
 import DistanceOverlay from "../component/distance-overlay";
+import { gql, useMutation } from "@apollo/client";
+
+const REGISTER = gql`
+  mutation register($user: ID!) {
+    register(user: $user) {
+      id
+      date
+    }
+  }
+`;
 
 const GMap = ({ radius }) => {
   const { lat, long, error, auth } = useData();
@@ -32,6 +42,8 @@ const GMap = ({ radius }) => {
     // lat: 5.754487382950839,
     // lng: 0.050190650641205724
   };
+
+  const [registerNow] = useMutation(REGISTER);
 
   useEffect(() => {
     googleMap = initGoogleMap();
@@ -150,8 +162,14 @@ const GMap = ({ radius }) => {
   }
 
   function showRegister() {
-    console.log(auth.token);
-    setForm(true);
+    // console.log(auth.token);
+    // setForm(true);
+
+    registerNow({
+      variables: {
+        user: auth
+      }
+    });
   }
 
   return (
