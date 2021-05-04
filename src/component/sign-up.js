@@ -98,6 +98,8 @@ export default function Signup() {
         {errors.department && <span>This field is required</span>}
 
         <input type="submit" />
+        {mutationLoading && <p>Loading...</p>}
+        {mutationError && <p>Error :( Please try again</p>}
       </form>
     </Wrapper>
   );
