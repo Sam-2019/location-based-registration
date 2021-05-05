@@ -38,8 +38,8 @@ export default function Signup() {
     formState: { errors }
   } = useForm();
 
-  const onSubmit = async (data) => {
-    // console.log(data);
+  const onSubmit = async ({ firstName, lastName, department }) => {
+    console.log(data);
     const array = new Uint32Array(1);
 
     const index = window.crypto.getRandomValues(array);
@@ -56,9 +56,9 @@ export default function Signup() {
     await signup({
       variables: {
         token: String(userID.token),
-        firstname: data.firstName,
-        lastname: data.lastName,
-        department: data.department
+        firstname: firstName,
+        lastname: lastName,
+        department: department
         // date: String(Date.now())
       }
     });
@@ -101,5 +101,5 @@ export default function Signup() {
     </Wrapper>
   );
 
-  return <>{state ? <Form /> : <Success />}</>;
+  return <>{state ? <Form /> : <Success data={data} />}</>;
 }
