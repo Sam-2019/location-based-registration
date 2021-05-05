@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { useMutation } from "@apollo/client";
 import Success from "./Success";
 import "./form.css";
-import { REGISTER } from "../qraphqlFunctions";
+import { REGISTERR } from "../qraphqlFunctions";
 
 import styled from "styled-components";
 
@@ -24,7 +24,7 @@ const Wrapper = styled.div`
 const Register = ({ closeRegister }) => {
   const [state, setState] = React.useState(true);
 
-  const [registerNow] = useMutation(REGISTER);
+  const [registerNow] = useMutation(REGISTERR);
 
   const {
     register,

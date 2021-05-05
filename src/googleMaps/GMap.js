@@ -6,16 +6,9 @@ import LocationSVG from "../component/locationSVG";
 import "./nothing.css";
 import LocationMarker from "../component/location-marker";
 import DistanceOverlay from "../component/distance-overlay";
-import { gql, useMutation } from "@apollo/client";
+import { useMutation } from "@apollo/client";
 import { useHistory } from "react-router-dom";
-
-const REGISTER = gql`
-  mutation register($user: ID!, $token: String!) {
-    register(user: $user, token: $token) {
-      id
-    }
-  }
-`;
+import { REGISTER } from "../qraphqlFunctions";
 
 const GMap = ({ radius }) => {
   const { lat, long, token, auth } = useData();
