@@ -1,5 +1,7 @@
 import React, { Fragment, Component } from "react";
 import { withGoogleMap, withScriptjs, GoogleMap } from "react-google-maps";
+import UserMarker from "./user-marker";
+import DestinationMarker from "./destination-marker";
 
 const center = {
   lat: 5.755071140968645,
@@ -47,11 +49,10 @@ function MapContainer() {
   }, []);
 
   return (
-    <GoogleMap
-      ref={(elem) => (this.map = elem)}
-      zoom={15}
-      center={center}
-    ></GoogleMap>
+    <GoogleMap ref={(elem) => (this.map = elem)} zoom={15} center={center}>
+      <UserMarker distance={distance} />
+      <DestinationMarker />
+    </GoogleMap>
   );
 }
 
