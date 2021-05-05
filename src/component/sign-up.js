@@ -1,8 +1,8 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { gql, useMutation } from "@apollo/client";
-import { Wrapper } from "./Loader";
+import { useMutation } from "@apollo/client";
+import { Wrapper } from "../styledComponents";
 import Success from "./Success";
 import "./form.css";
 import { SIGNUP } from "../qraphqlFunctions";

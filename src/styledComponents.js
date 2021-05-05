@@ -16,3 +16,9 @@ export const Load = styled.div`
   color: #000000;
   text-align: center;
 `;
+
+export const SuccessItem = styled.div`
+  margin: auto;
+  color: #000000;
+  text-align: center;
+`;
