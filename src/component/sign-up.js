@@ -51,10 +51,10 @@ export default function Signup() {
   };
 
   function show() {
-    console.log(loading);
-    // if (!loading) {
-    //   history.push("/");
-    // }
+    // console.log(loading);
+    if (!loading) {
+      history.push("/");
+    }
   }
 
   const Form = () => (
