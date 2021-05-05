@@ -45,7 +45,7 @@ export default function Signup() {
 
     // await saveID();
 
-    setState(false);
+    await setState(false);
 
     show();
   };

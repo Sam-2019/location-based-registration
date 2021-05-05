@@ -26,8 +26,10 @@ function AppROutes() {
           {!token ? <Redirect to="/" /> : <Success />}
         </Route>
 
+        {!token ? <Redirect to="/signup" /> : <Home />}
+
         <Route exact path="/">
-          {!token ? <Redirect to="/signup" /> : <Home />}
+          <Home />
         </Route>
       </Switch>
     </Router>
