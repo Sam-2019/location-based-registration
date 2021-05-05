@@ -1,6 +1,6 @@
 import React from "react";
-import { Wrapper } from "./Loader";
-import { SuccessItem, Animation } from "./Success";
+import { SuccessItem, Wrapper } from "../styledComponents";
+import { Animation } from "../constants/animation";
 
 export default function AnotherSuccess() {
   return (

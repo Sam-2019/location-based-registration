@@ -4,22 +4,7 @@ import { useMutation } from "@apollo/client";
 import Success from "./Success";
 import "./form.css";
 import { REGISTERR } from "../qraphqlFunctions";
-
-import styled from "styled-components";
-
-const Wrapper = styled.div`
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  top: 0;
-  display: flex;
-  align-content: center;
-  background-color: white;
-  padding: 0 10px;
-  margin: 5px;
-  z-index: 20;
-`;
+import { RegisterWrapper } from "../styledComponents";
 
 const Register = ({ closeRegister }) => {
   const [state, setState] = React.useState(true);
@@ -49,7 +34,7 @@ const Register = ({ closeRegister }) => {
   };
 
   const Form = () => (
-    <Wrapper>
+    <RegisterWrapper>
       <form onSubmit={handleSubmit(onSubmit)}>
         <h5> Register </h5>
         <label>First Name</label>
@@ -75,7 +60,7 @@ const Register = ({ closeRegister }) => {
 
         <button onClick={closeRegister}>Cancel</button>
       </form>
-    </Wrapper>
+    </RegisterWrapper>
   );
 
   return <>{state ? <Form /> : <Success />}</>;
