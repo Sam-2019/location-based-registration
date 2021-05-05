@@ -1,4 +1,5 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { gql, useMutation } from "@apollo/client";
 import { Wrapper } from "./Loader";
@@ -28,9 +29,10 @@ const SIGNUP = gql`
 `;
 
 export default function Signup() {
+  let history = useHistory();
   const [state, setState] = React.useState(true);
 
-  const [signup, { data }] = useMutation(SIGNUP);
+  const [signup, { data, loading }] = useMutation(SIGNUP);
 
   const {
     register,
@@ -65,7 +67,15 @@ export default function Signup() {
     // await saveID();
 
     setState(false);
+
+    show();
   };
+
+  function show() {
+    if (!loading) {
+      history.push("/");
+    }
+  }
 
   const Form = () => (
     <Wrapper>
