@@ -9,6 +9,7 @@ import DistanceOverlay from "../component/distance-overlay";
 import { useMutation } from "@apollo/client";
 import { useHistory } from "react-router-dom";
 import { REGISTER } from "../qraphqlFunctions";
+import { MapButton, ExclamationTriangle } from "../constants/helper";
 
 const GMap = ({ radius }) => {
   const { lat, long, token, auth } = useData();
