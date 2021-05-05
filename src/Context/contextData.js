@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useLocalStorage } from "./hooks/useLocalStorage";
+import { useLocalStorage } from "../hooks/useLocalStorage";
 
 const Data = () => {
   const [token] = useLocalStorage("signupTOKEN", "");

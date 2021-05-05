@@ -8,7 +8,7 @@ import Signup from "./component/sign-up";
 import Home from "./component/Home";
 import Success from "./component/Success2";
 
-import { useData } from "./Context";
+import { useData } from "./Context/Context";
 
 function AppROutes() {
   const { token } = useData();
