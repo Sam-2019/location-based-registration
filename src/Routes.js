@@ -11,7 +11,7 @@ import Success from "./component/Success2";
 function AppROutes() {
   const find = localStorage.getItem("signupTOKEN");
 
-  console.log(find);
+  //console.log(find);
 
   return (
     <Router>
