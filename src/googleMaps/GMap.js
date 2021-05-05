@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import PropTypes from "prop-types";
-import { useData } from "../Context";
+import { useData } from "../Context/Context";
 import Register from "../component/register";
 import LocationSVG from "../component/locationSVG";
 import "./nothing.css";
