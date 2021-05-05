@@ -62,17 +62,11 @@ export default function Signup() {
       <form onSubmit={handleSubmit(onSubmit)}>
         <h5> Signup </h5>
         <label>First Name</label>
-        <input
-          {...register("firstName", { required: true })}
-          placeholder="First Name"
-        />
+        <input {...register("firstName", { required: true })} />
         {errors.fname && <span>This field is required</span>}
 
         <label>Last Name</label>
-        <input
-          {...register("lastName", { required: true })}
-          placeholder="Last Name"
-        />
+        <input {...register("lastName", { required: true })} />
         {errors.lname && <span>This field is required</span>}
 
         <label>Department</label>
