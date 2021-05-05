@@ -50,10 +50,6 @@ const Data = () => {
     };
   }, []);
 
-  async function verify() {
-    return;
-  }
-
   return {
     token,
     auth,
