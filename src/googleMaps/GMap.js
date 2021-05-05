@@ -153,9 +153,6 @@ const GMap = ({ radius }) => {
   }
 
   function showRegister() {
-    // console.log(auth.token);
-    // setForm(true);
-
     registerNow({
       variables: {
         user: String(auth),
@@ -167,8 +164,6 @@ const GMap = ({ radius }) => {
   }
 
   function show() {
-    // console.log(loading);
-
     if (loading === false) {
       history.push("/success");
     }
