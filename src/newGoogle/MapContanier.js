@@ -2,8 +2,9 @@ import React from "react";
 import { withGoogleMap, withScriptjs, GoogleMap } from "react-google-maps";
 import UserMarker from "./user-marker";
 import DestinationMarker from "./destination-marker";
+import CircleMarker from "./circle";
 
-const center = {
+const destination = {
   lat: 5.755071140968645,
   lng: 0.05037
 };
@@ -47,9 +48,14 @@ function MapContainer() {
   }, []);
 
   return (
-    <GoogleMap ref={(elem) => (this.map = elem)} zoom={15} center={center}>
-      <UserMarker distance={distance} />
-      <DestinationMarker />
+    <GoogleMap ref={(elem) => (this.map = elem)} zoom={15} center={destination}>
+      <UserMarker
+        distance={distance}
+        center={destination}
+        userLocation={userLocation}
+      />
+      <DestinationMarker center={destination} />
+      <CircleMarker center={destination} />
     </GoogleMap>
   );
 }
