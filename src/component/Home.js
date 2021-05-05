@@ -6,8 +6,6 @@ export default function Home() {
   const [loading, setLoading] = useState(true);
   const [map, setMap] = useState(false);
 
-  //console.log(auth[0].token);
-
   useEffect(() => {
     let didCancel = false;
 
