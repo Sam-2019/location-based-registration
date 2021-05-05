@@ -1,5 +1,4 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useMutation } from "@apollo/client";
 import { Wrapper } from "../styledComponents";
@@ -8,7 +7,6 @@ import "./form.css";
 import { SIGNUP } from "../qraphqlFunctions";
 
 export default function Signup() {
-  let history = useHistory();
   const [state, setState] = React.useState(true);
 
   const [signup, { data, loading }] = useMutation(SIGNUP);
@@ -46,16 +44,7 @@ export default function Signup() {
     // await saveID();
 
     await setState(false);
-
-    show();
   };
-
-  function show() {
-    // console.log(loading);
-    if (!loading) {
-      history.push("/");
-    }
-  }
 
   const Form = () => (
     <Wrapper>
@@ -84,5 +73,5 @@ export default function Signup() {
     </Wrapper>
   );
 
-  return <>{state ? <Form /> : <Success data={data} />}</>;
+  return <>{state ? <Form /> : <Success data={data} loading={loading} />}</>;
 }

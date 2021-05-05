@@ -3,15 +3,16 @@ import { useHistory } from "react-router-dom";
 import { Wrapper, SuccessItem } from "../styledComponents";
 import { Animation } from "../constants/animation";
 
-const Success = ({ data }) => {
+const Success = ({ data, loading }) => {
   localStorage.setItem("signupID", JSON.stringify(data.signup.id));
 
   let history = useHistory();
 
   function goHome() {
-    history.push("/");
+    if (loading === false) {
+      history.push("/");
+    }
   }
-
   return (
     <Wrapper>
       <SuccessItem>
