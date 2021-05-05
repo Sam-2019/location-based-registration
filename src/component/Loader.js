@@ -9,6 +9,7 @@ export const Wrapper = styled.div`
   top: 0;
   display: flex;
   align-content: center;
+  border: 1px solid red;
 `;
 
 export const Load = styled.div`
