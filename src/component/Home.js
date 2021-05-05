@@ -12,7 +12,7 @@ export default function Home() {
     let didCancel = false;
 
     const checkToken = () => {
-      const token = localStorage.getItem("sign-up");
+      const token = localStorage.getItem("signupTOKEN");
 
       if (!didCancel) {
         const timer = setTimeout(() => {
