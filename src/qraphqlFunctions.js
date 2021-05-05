@@ -22,7 +22,7 @@ export const SIGNUP = gql`
   }
 `;
 
-const REGISTER = gql`
+export const REGISTER = gql`
   mutation register($user: ID!, $token: String!) {
     register(user: $user, token: $token) {
       id
