@@ -9,7 +9,7 @@ const SuccessItem = styled.div`
   text-align: center;
 `;
 
-export default function Success() {
+const Success = ({ data }) => {
   //let history = useHistory();
 
   return (
@@ -21,4 +21,6 @@ export default function Success() {
       </SuccessItem>
     </Wrapper>
   );
-}
+};
+
+export default Success;
