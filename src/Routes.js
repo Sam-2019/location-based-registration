@@ -8,12 +8,10 @@ import Signup from "./component/sign-up";
 import Home from "./component/Home";
 import Success from "./component/Success2";
 
-import { useData } from "./Context/Context";
-
 function AppROutes() {
-  const { token } = useData();
+  const find = localStorage.getItem("signupTOKEN");
 
-  //console.log(!token);
+  console.log(find);
 
   return (
     <Router>
@@ -23,13 +21,11 @@ function AppROutes() {
         </Route>
 
         <Route path="/success">
-          {!token ? <Redirect to="/" /> : <Success />}
+          {!find ? <Redirect to="/" /> : <Success />}
         </Route>
 
-        {!token ? <Redirect to="/signup" /> : <Home />}
-
         <Route exact path="/">
-          <Home />
+          {!find ? <Redirect to="/signup" /> : <Home />}
         </Route>
       </Switch>
     </Router>
