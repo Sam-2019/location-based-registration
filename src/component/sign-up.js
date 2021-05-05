@@ -39,7 +39,6 @@ export default function Signup() {
   } = useForm();
 
   const onSubmit = async ({ firstName, lastName, department }) => {
-    console.log(data);
     const array = new Uint32Array(1);
 
     const index = window.crypto.getRandomValues(array);
