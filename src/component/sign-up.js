@@ -51,7 +51,7 @@ export default function Signup() {
 
     //console.log(userID.token);
 
-    await localStorage.setItem("sign-up", JSON.stringify(userID));
+    await localStorage.setItem("signupTOKEN", JSON.stringify(userID));
 
     await signup({
       variables: {
