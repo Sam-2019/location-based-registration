@@ -1,17 +1,13 @@
 import React from "react";
 import { Wrapper } from "./Loader";
-import { SuccessItem } from "./Success";
+import { SuccessItem, Animation } from "./Success";
 
-const Success2 = () => {
+export default function AnotherSuccess() {
   return (
     <Wrapper>
       <SuccessItem>
-        <div> Success</div>
-
-        {/* <div onClick={handleClick}>Go to Home</div> */}
+        <Animation />
       </SuccessItem>
     </Wrapper>
   );
-};
-
-export default Success2;
+}
