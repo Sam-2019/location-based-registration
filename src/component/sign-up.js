@@ -98,7 +98,7 @@ export default function Signup() {
         <label>Department</label>
         <select {...register("department", { required: true })}>
           <option selected disabled></option>
-
+          <option value="Car Park">Car Park</option>
           <option value="Accounts">Accounts</option>
           <option value="Supply Chain">Supply Chain</option>
           <option value="Other">Other</option>
