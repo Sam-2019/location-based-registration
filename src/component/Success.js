@@ -11,6 +11,9 @@ const SuccessItem = styled.div`
 
 const Success = ({ data }) => {
   //let history = useHistory();
+  // console.log(data.signup.id);
+
+  localStorage.setItem("signupID", JSON.stringify(data.signup.id));
 
   return (
     <Wrapper>
