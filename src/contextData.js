@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { useLocalStorage } from "./hooks/useLocalStorage";
 
 const Data = () => {
-  const [auth] = useLocalStorage("sign-up", "");
+  const [token] = useLocalStorage("signupTOKEN", "");
+  const [auth] = useLocalStorage("signupID", "");
   const [error, setError] = useState();
   const [lat, setLat] = useState(0);
   const [long, setLong] = useState(0);
@@ -54,6 +55,7 @@ const Data = () => {
   }
 
   return {
+    token,
     auth,
     lat,
     long,
