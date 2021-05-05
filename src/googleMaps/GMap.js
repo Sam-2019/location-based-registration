@@ -7,6 +7,7 @@ import "./nothing.css";
 import LocationMarker from "../component/location-marker";
 import DistanceOverlay from "../component/distance-overlay";
 import { gql, useMutation } from "@apollo/client";
+import { useHistory } from "react-router-dom";
 
 const REGISTER = gql`
   mutation register($user: ID!, $token: String!) {
@@ -17,11 +18,13 @@ const REGISTER = gql`
 `;
 
 const GMap = ({ radius }) => {
-  const { lat, long, error, token, auth } = useData();
+  const { lat, long, token, auth } = useData();
+  let history = useHistory();
 
-  console.log(lat, long, error);
+  // console.log(lat, long);
   const [distance, setDistance] = useState(0);
   const [form, setForm] = useState(false);
+  const [registerNow, { data, loading, error }] = useMutation(REGISTER);
 
   const googleMapRef = useRef(null);
   let googleMap = null;
@@ -41,8 +44,6 @@ const GMap = ({ radius }) => {
     // lat: 5.754487382950839,
     // lng: 0.050190650641205724
   };
-
-  const [registerNow] = useMutation(REGISTER);
 
   useEffect(() => {
     googleMap = initGoogleMap();
@@ -166,10 +167,20 @@ const GMap = ({ radius }) => {
 
     registerNow({
       variables: {
-        user: auth,
-        token: token
+        user: String(auth),
+        token: String(token.token)
       }
     });
+
+    show();
+  }
+
+  function show() {
+    // console.log(loading);
+
+    if (loading === false) {
+      history.push("/success");
+    }
   }
 
   return (

@@ -6,13 +6,12 @@ import {
 } from "react-router-dom";
 import Signup from "./component/sign-up";
 import Home from "./component/Home";
+import Success from "./component/Success2";
 
 import { useData } from "./Context";
 
 function AppROutes() {
-  const { auth } = useData();
-
-  console.log(auth);
+  const { token } = useData();
   return (
     <Router>
       <Switch>
@@ -20,8 +19,12 @@ function AppROutes() {
           <Signup />
         </Route>
 
+        <Route path="/success">
+          {!token ? <Redirect to="/" /> : <Success />}
+        </Route>
+
         <Route exact path="/">
-          {!auth ? <Redirect to="/signup" /> : <Home />}
+          {!token ? <Redirect to="/signup" /> : <Home />}
         </Route>
       </Switch>
     </Router>
