@@ -4,9 +4,6 @@ import lottieJson from "../constants/data.json";
 import { Wrapper, SuccessItem } from "../styledComponents";
 
 const Success = ({ data }) => {
-  //let history = useHistory();
-  // console.log(data.signup.id);
-
   localStorage.setItem("signupID", JSON.stringify(data.signup.id));
 
   return (
