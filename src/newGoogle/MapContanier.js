@@ -2,7 +2,7 @@ import React from "react";
 import { withGoogleMap, withScriptjs, GoogleMap } from "react-google-maps";
 import UserMarker from "./user-marker";
 import DestinationMarker from "./destination-marker";
-import CircleMarker from "./circle";
+import CircleMarker from "./circle-marker";
 
 const destination = {
   lat: 5.755071140968645,
