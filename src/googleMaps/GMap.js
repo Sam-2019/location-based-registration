@@ -17,7 +17,7 @@ const REGISTER = gql`
 `;
 
 const GMap = ({ radius }) => {
-  const { lat, long, error, auth } = useData();
+  const { lat, long, error, token, auth } = useData();
 
   console.log(lat, long, error);
   const [distance, setDistance] = useState(0);
@@ -167,7 +167,7 @@ const GMap = ({ radius }) => {
     registerNow({
       variables: {
         user: auth,
-        token: auth
+        token: token
       }
     });
   }
