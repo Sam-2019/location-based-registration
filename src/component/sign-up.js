@@ -5,28 +5,7 @@ import { gql, useMutation } from "@apollo/client";
 import { Wrapper } from "./Loader";
 import Success from "./Success";
 import "./form.css";
-
-const SIGNUP = gql`
-  mutation signup(
-    $token: String!
-    $firstname: String!
-    $lastname: String!
-    $department: String!
-  ) {
-    signup(
-      token: $token
-      firstname: $firstname
-      lastname: $lastname
-      department: $department
-    ) {
-      id
-      token
-      firstname
-      lastname
-      department
-    }
-  }
-`;
+import { SIGNUP } from "../qraphqlFunctions";
 
 export default function Signup() {
   let history = useHistory();

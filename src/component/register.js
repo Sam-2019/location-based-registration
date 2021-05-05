@@ -1,8 +1,9 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { gql, useMutation } from "@apollo/client";
+import { useMutation } from "@apollo/client";
 import Success from "./Success";
 import "./form.css";
+import { REGISTER } from "../qraphqlFunctions";
 
 import styled from "styled-components";
 
@@ -18,28 +19,6 @@ const Wrapper = styled.div`
   padding: 0 10px;
   margin: 5px;
   z-index: 20;
-`;
-
-const REGISTER = gql`
-  mutation register(
-    $firstname: String!
-    $lastname: String!
-    $department: String!
-    $date: String!
-  ) {
-    register(
-      firstname: $firstname
-      lastname: $lastname
-      department: $department
-      date: $date
-    ) {
-      id
-      firstname
-      lastname
-      department
-      date
-    }
-  }
 `;
 
 const Register = ({ closeRegister }) => {
