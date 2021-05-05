@@ -122,8 +122,6 @@ const GMap = ({ radius }) => {
   useEffect(() => {
     let didCancel = false;
 
-    console.log();
-
     async function compute() {
       const to = await new google.maps.LatLng(center);
       const from = await new google.maps.LatLng(userLocation);
