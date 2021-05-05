@@ -12,6 +12,9 @@ import { useData } from "./Context/Context";
 
 function AppROutes() {
   const { token } = useData();
+
+  //console.log(!token);
+
   return (
     <Router>
       <Switch>
