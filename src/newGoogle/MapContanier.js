@@ -1,4 +1,4 @@
-import React, { Fragment, Component } from "react";
+import React from "react";
 import { withGoogleMap, withScriptjs, GoogleMap } from "react-google-maps";
 import UserMarker from "./user-marker";
 import DestinationMarker from "./destination-marker";
@@ -24,8 +24,6 @@ function MapContainer() {
 
   React.useEffect(() => {
     let didCancel = false;
-
-    console.log();
 
     async function compute() {
       const to = await new google.maps.LatLng(center);
