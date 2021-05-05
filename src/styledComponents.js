@@ -10,3 +10,9 @@ export const Wrapper = styled.div`
   align-content: center;
   border: 1px solid red;
 `;
+
+export const Load = styled.div`
+  margin: auto;
+  color: #000000;
+  text-align: center;
+`;
