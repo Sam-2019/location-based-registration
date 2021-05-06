@@ -7,6 +7,7 @@ import {
 import Signup from "./component/sign-up";
 import Home from "./component/Home";
 import Success from "./component/Success2";
+import NotFound from "./component/NotFound";
 
 function AppROutes() {
   const find = localStorage.getItem("signupTOKEN");
@@ -22,6 +23,10 @@ function AppROutes() {
 
         <Route path="/success">
           {!find ? <Redirect to="/" /> : <Success />}
+        </Route>
+
+        <Route>
+          <NotFound />
         </Route>
 
         <Route exact path="/">
