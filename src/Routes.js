@@ -1,31 +1,28 @@
 import {
   BrowserRouter as Router,
+  Redirect,
   Route,
-  Switch,
-  Redirect
+  Switch
 } from "react-router-dom";
 import Signup from "./component/sign-up";
 import Home from "./component/Home";
-import Success from "./component/Success2";
 import NotFound from "./component/NotFound";
+import PrivateRoute from "./component/PrivateRoute";
 
 function AppROutes() {
   const find = localStorage.getItem("signupTOKEN");
-
-  //console.log(find);
 
   return (
     <Router>
       <Switch>
         <Route exact path="/">
-          {!find ? <Redirect to="/signup" /> : <Home />}
-        </Route>
-        <Route path="/signup">
           <Signup />
         </Route>
-        <Route path="/success">
-          {!find ? <Redirect to="/" /> : <Success />}
-        </Route>
+
+        <PrivateRoute exact path="/register">
+          <Home />
+        </PrivateRoute>
+
         <Route>
           <NotFound />
         </Route>

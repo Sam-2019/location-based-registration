@@ -10,7 +10,7 @@ const Success = ({ data, loading }) => {
 
   function goHome() {
     if (loading === false) {
-      history.push("/");
+      history.push("/register");
     }
   }
   return (
