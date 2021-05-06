@@ -17,20 +17,17 @@ function AppROutes() {
   return (
     <Router>
       <Switch>
+        <Route exact path="/">
+          {!find ? <Redirect to="/signup" /> : <Home />}
+        </Route>
         <Route path="/signup">
           <Signup />
         </Route>
-
         <Route path="/success">
           {!find ? <Redirect to="/" /> : <Success />}
         </Route>
-
         <Route>
           <NotFound />
-        </Route>
-
-        <Route exact path="/">
-          {!find ? <Redirect to="/signup" /> : <Home />}
         </Route>
       </Switch>
     </Router>
