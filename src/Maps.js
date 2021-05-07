@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
-import Loader from "./Loader";
+import Loader from "./component/Loader";
 import MapLoader from "./googleMaps/MapLoader";
 
 export default function Home() {
