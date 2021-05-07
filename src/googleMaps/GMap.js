@@ -166,7 +166,7 @@ const GMap = ({ radius }) => {
 
   function show() {
     if (loading === false) {
-      history.push("/success");
+      history.push("/");
     }
   }
 

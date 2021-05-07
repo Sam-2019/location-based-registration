@@ -10,22 +10,20 @@ import NotFound from "./component/NotFound";
 import PrivateRoute from "./component/PrivateRoute";
 
 function AppROutes() {
-  const find = localStorage.getItem("signupTOKEN");
-
   return (
     <Router>
       <Switch>
-        {find ? (
-          <Route exact path="/">
-            <Home />
-          </Route>
-        ) : (
-          <Route exact path="/signup">
-            <Signup />
-          </Route>
-        )}
+        <Route path="/signup">
+          <Signup />
+        </Route>
 
-        {/* {!find && <Redirect to="/signup" />} */}
+        <Route>
+          <NotFound />
+        </Route>
+
+        <Route exact path="/">
+          <Home />
+        </Route>
       </Switch>
     </Router>
   );
