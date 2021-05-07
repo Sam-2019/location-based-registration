@@ -1,13 +1,14 @@
 import React from "react";
-import { SuccessItem, Wrapper } from "../styledComponents";
+import { PopupWrapper, Popup } from "../styledComponents";
 import { Animation } from "../constants/animation";
 
 export default function AnotherSuccess() {
   return (
-    <Wrapper>
-      <SuccessItem>
+    <PopupWrapper>
+      <Popup>
         <Animation />
-      </SuccessItem>
-    </Wrapper>
+        Registeration successful
+      </Popup>
+    </PopupWrapper>
   );
 }

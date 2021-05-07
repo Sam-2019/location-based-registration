@@ -4,11 +4,12 @@ import Register from "../component/register";
 import LocationSVG from "../component/locationSVG";
 import LocationMarker from "../component/location-marker";
 import DistanceOverlay from "../component/distance-overlay";
+import Success from "../component/Success2";
 import { useData } from "../Context/Context";
 import { useMutation } from "@apollo/client";
-import { useHistory } from "react-router-dom";
 import { REGISTER } from "../graphqlFunctions";
 import { MapButton, ExclamationTriangle } from "../constants/helper";
+import { Popup } from "../styledComponents";
 
 import "./nothing.css";
 
@@ -17,11 +18,10 @@ const radius = 17.18;
 const GMap = () => {
   const { currentLat, currentLong, token, auth } = useData();
 
-  let history = useHistory();
-
   //console.log(currentLat, currentLong);
   const [distance, setDistance] = useState(0);
   const [form, setForm] = useState(false);
+  const [success, setSuccess] = useState(false);
 
   const [registerNow, { loading }] = useMutation(REGISTER);
 
@@ -176,7 +176,7 @@ const GMap = () => {
 
   function show() {
     if (loading === false) {
-      history.push("/");
+      setSuccess(true);
     }
   }
 
@@ -219,6 +219,8 @@ const GMap = () => {
       </div>
 
       {form ? <Register closeRegister={closeRegister} /> : null}
+
+      {success ? <Success /> : null}
     </div>
   );
 };

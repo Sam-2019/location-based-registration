@@ -1,6 +1,6 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-import { Wrapper, SuccessItem } from "../styledComponents";
+import SuccessItem, { Wrapper } from "../styledComponents";
 import { Animation } from "../constants/animation";
 
 const Success = ({ data, loading }) => {

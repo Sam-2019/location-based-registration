@@ -35,3 +35,29 @@ export const SuccessItem = styled.div`
   color: #000000;
   text-align: center;
 `;
+
+export const PopupWrapper = styled.div`
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 50%;
+  transition: all ease 0.7s;
+  z-index: 11;
+  animation-name: fade-in;
+  animation-duration: 0.5s;
+  animation-delay: 0s;
+  animation-fill-mode: forwards;
+  display: flex;
+  align-content: center;
+  background-color: #ffffff;
+  border-radius: 50px 50px 0 0;
+`;
+
+export const Popup = styled.div`
+  margin: auto;
+  transition: all 0.6s ease-in-out;
+  max-width: 400px;
+  /* border: 1px solid red; */
+  text-align: center;
+`;
