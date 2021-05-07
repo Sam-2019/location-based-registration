@@ -27,7 +27,7 @@ function MapContainer() {
     let didCancel = false;
 
     async function compute() {
-      const to = await new google.maps.LatLng(center);
+      const to = await new google.maps.LatLng(destination);
       const from = await new google.maps.LatLng(userLocation);
 
       const distanceMeters = await google.maps.geometry.spherical.computeDistanceBetween(
