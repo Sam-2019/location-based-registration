@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Signup from "./component/sign-up";
-import Home from "./component/Home";
+import Maps from "./Maps";
 import NotFound from "./component/NotFound";
 
 function AppROutes() {
@@ -11,7 +11,7 @@ function AppROutes() {
           <Signup />
         </Route>
         <Route exact path="/">
-          <Home />
+          <Maps />
         </Route>
         <Route>
           <NotFound />
