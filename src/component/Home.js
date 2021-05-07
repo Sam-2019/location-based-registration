@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import Loader from "./Loader";
 import Map from "../Map";
 
 export default function Home() {
+  let history = useHistory();
   const [loading, setLoading] = useState(true);
   const [map, setMap] = useState(false);
 
@@ -17,6 +19,8 @@ export default function Home() {
           if (token) {
             setLoading(false);
             setMap(true);
+          } else {
+            history.push("./signup");
           }
         }, 3000);
 

@@ -16,13 +16,11 @@ function AppROutes() {
         <Route path="/signup">
           <Signup />
         </Route>
-
-        <Route>
-          <NotFound />
-        </Route>
-
         <Route exact path="/">
           <Home />
+        </Route>
+        <Route>
+          <NotFound />
         </Route>
       </Switch>
     </Router>
