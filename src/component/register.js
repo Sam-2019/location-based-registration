@@ -1,10 +1,11 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { useMutation } from "@apollo/client";
-import Success from "./Success";
-import "./form.css";
-import { REGISTERR } from "../qraphqlFunctions";
+import { REGISTERR } from "../graphqlFunctions";
 import { RegisterWrapper } from "../styledComponents";
+import Success from "./Success";
+
+import "./form.css";
 
 const Register = ({ closeRegister }) => {
   const [state, setState] = React.useState(true);

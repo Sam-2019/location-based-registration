@@ -2,9 +2,10 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { useMutation } from "@apollo/client";
 import { Wrapper } from "../styledComponents";
+import { SIGNUP } from "../graphqlFunctions";
 import Success from "./Success";
+
 import "./form.css";
-import { SIGNUP } from "../qraphqlFunctions";
 
 export default function Signup() {
   const [state, setState] = React.useState(true);

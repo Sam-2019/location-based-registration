@@ -7,7 +7,7 @@ import DistanceOverlay from "../component/distance-overlay";
 import { useData } from "../Context/Context";
 import { useMutation } from "@apollo/client";
 import { useHistory } from "react-router-dom";
-import { REGISTER } from "../qraphqlFunctions";
+import { REGISTER } from "../graphqlFunctions";
 import { MapButton, ExclamationTriangle } from "../constants/helper";
 
 import "./nothing.css";
@@ -19,11 +19,11 @@ const GMap = () => {
 
   let history = useHistory();
 
-  // console.log(lat, long);
+  //console.log(currentLat, currentLong);
   const [distance, setDistance] = useState(0);
   const [form, setForm] = useState(false);
 
-  const [registerNow, { data, loading, error }] = useMutation(REGISTER);
+  const [registerNow, { loading }] = useMutation(REGISTER);
 
   const googleMapRef = useRef(null);
   let googleMap = null;
@@ -33,9 +33,14 @@ const GMap = () => {
     lng: 0.05037
   };
 
+  const destination = {
+    lat: 5.755073829143968,
+    lng: 0.0503942683982546
+  };
+
   const userLocation = {
-    //  lat: currentLat,
-    // lng: currentLong
+    //    lat: currentLat,
+    //  lng: currentLong
 
     lat: 5.755128,
     lng: 0.050256
@@ -68,7 +73,7 @@ const GMap = () => {
     });
 
     const premises = new google.maps.Marker({
-      position: center,
+      position: destination,
       map: map
     });
     premises.addListener("click", () => {
@@ -190,7 +195,7 @@ const GMap = () => {
           </div>
 
           <div className="premisesXwithin">
-            <div className="premises"> Name of Premises </div>
+            <div className="premises"> ICGC Elim Temple </div>
             {distance >= radius ? (
               <div className="within-premises"> Not on Premises </div>
             ) : (
