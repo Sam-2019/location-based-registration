@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import Loader from "./Loader";
-import Map from "../Map";
+import MapLoader from "./googleMaps/MapLoader";
 
 export default function Home() {
   let history = useHistory();
@@ -39,7 +39,7 @@ export default function Home() {
     <>
       {loading ? <Loader /> : null}
 
-      {map ? <Map /> : null}
+      {map ? <MapLoader /> : null}
     </>
   );
 }

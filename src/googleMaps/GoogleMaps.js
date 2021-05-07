@@ -1,23 +1,28 @@
 import React, { useEffect, useRef, useState } from "react";
 import PropTypes from "prop-types";
-import { useData } from "../Context/Context";
 import Register from "../component/register";
 import LocationSVG from "../component/locationSVG";
-import "./nothing.css";
 import LocationMarker from "../component/location-marker";
 import DistanceOverlay from "../component/distance-overlay";
+import { useData } from "../Context/Context";
 import { useMutation } from "@apollo/client";
 import { useHistory } from "react-router-dom";
 import { REGISTER } from "../qraphqlFunctions";
 import { MapButton, ExclamationTriangle } from "../constants/helper";
 
-const GMap = ({ radius }) => {
-  const { lat, long, token, auth } = useData();
+import "./nothing.css";
+
+const radius = 17.18;
+
+const GMap = () => {
+  const { currentLat, currentLong, token, auth } = useData();
+
   let history = useHistory();
 
   // console.log(lat, long);
   const [distance, setDistance] = useState(0);
   const [form, setForm] = useState(false);
+
   const [registerNow, { data, loading, error }] = useMutation(REGISTER);
 
   const googleMapRef = useRef(null);
@@ -29,8 +34,8 @@ const GMap = ({ radius }) => {
   };
 
   const userLocation = {
-    //  lat: lat,
-    // lng: long
+    //  lat: currentLat,
+    // lng: currentLong
 
     lat: 5.755128,
     lng: 0.050256
