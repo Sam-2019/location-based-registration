@@ -37,8 +37,10 @@ input {
 }
 
 input:focus,
-input:active {
-  border: 3px solid #2b8f0a;
+input:active,
+select:focus,
+select:active {
+  border: 2px solid #00ff0880;
 }
 
 button {
@@ -49,6 +51,7 @@ button {
   text-align: center;
   font-size: 20px;
   outline: none;
+  color: white;
 }
 
 select {
@@ -57,6 +60,8 @@ select {
   padding: 15px;
   font-size: 18px;
   border-radius: 15px;
+  border: 2px solid #d5d5d542;
+  outline: none;
 }
 
 @media (max-width: 500px) {

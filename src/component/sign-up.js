@@ -50,17 +50,24 @@ export default function Signup() {
     <Wrapper>
       <form onSubmit={handleSubmit(onSubmit)}>
         <h5> Signup </h5>
-        <label>First Name</label>
-        <input {...register("firstName", { required: true })} />
+
+        <input
+          {...register("firstName", { required: true })}
+          placeholder="First Name"
+        />
         {errors.fname && <span>This field is required</span>}
 
-        <label>Last Name</label>
-        <input {...register("lastName", { required: true })} />
+        <input
+          {...register("lastName", { required: true })}
+          placeholder="Last Name"
+        />
         {errors.lname && <span>This field is required</span>}
 
         <label>Department</label>
         <select {...register("department", { required: true })}>
-          <option selected disabled></option>
+          <option selected disabled>
+            Choose Department
+          </option>
           <option value="Car Park">Car Park</option>
           <option value="Accounts">Accounts</option>
           <option value="Supply Chain">Supply Chain</option>
