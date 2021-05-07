@@ -4,22 +4,44 @@ import { useLocalStorage } from "../hooks/useLocalStorage";
 const Data = () => {
   const [token] = useLocalStorage("signupTOKEN", "");
   const [auth] = useLocalStorage("signupID", "");
-  const [error, setError] = useState();
-  const [lat, setLat] = useState(0);
-  const [long, setLong] = useState(0);
+
+  const [currentPositionLat, setCurrentPositionLat] = useState(0);
+  const [currentPositionLong, setCurrentPositionLong] = useState(0);
+  // const [currentPositionError, setCurrentPositionError] = useState("");
+
+  const [watchPositionLat, setwatchPositionLat] = useState(0);
+  const [watchPositionLong, setwatchPositionLong] = useState(0);
+  // const [watchPositionError, setWatchPositionError] = useState("");
+
+  const [error, setError] = useState("");
 
   // Success handler for geolocation's `getCurrentPosition` method
-  const handleSuccess = (pos) => {
+  const currentPositionSuccess = (pos) => {
     const { latitude, longitude } = pos.coords;
 
-    setLat(latitude);
-    setLong(longitude);
+    setCurrentPositionLat(latitude);
+    setCurrentPositionLong(longitude);
   };
 
-  // Error handler for geolocation's `getCurrentPosition` method
   const handleError = (error) => {
     setError(error.message);
   };
+
+  // const currentError = (error) => {
+  //   setCurrentPositionError(error.message);
+  // };
+  // Success handler for geolocation's `watchPosition` method
+  const watchPositionSuccess = (pos) => {
+    const { latitude, longitude } = pos.coords;
+
+    setwatchPositionLat(latitude);
+    setwatchPositionLong(longitude);
+  };
+
+  // Error handler for geolocation's `watchPosition` method
+  // const watchError = (error) => {
+  //   setWatchPositionError(error.message);
+  // };
 
   React.useEffect(() => {
     let didCancel = false;
@@ -39,7 +61,12 @@ const Data = () => {
           return;
         }
 
-        geolocation.getCurrentPosition(handleSuccess, handleError, options);
+        geolocation.getCurrentPosition(
+          currentPositionSuccess,
+          handleError,
+          options
+        );
+        geolocation.watchPosition(watchPositionSuccess, handleError, options);
       }
     }
 
@@ -53,8 +80,12 @@ const Data = () => {
   return {
     token,
     auth,
-    lat,
-    long,
+    currentPositionLat,
+    currentPositionLong,
+    watchPositionLat,
+    watchPositionLong,
+    // currentPositionError,
+    // watchPositionError,
     error
   };
 };
