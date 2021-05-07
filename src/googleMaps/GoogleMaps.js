@@ -9,7 +9,6 @@ import { useData } from "../Context/Context";
 import { useMutation } from "@apollo/client";
 import { REGISTER } from "../graphqlFunctions";
 import { MapButton, ExclamationTriangle } from "../constants/helper";
-import { Popup } from "../styledComponents";
 
 import "./nothing.css";
 
@@ -39,11 +38,11 @@ const GMap = () => {
   };
 
   const userLocation = {
-    //    lat: currentLat,
-    //  lng: currentLong
+    lat: currentLat,
+    lng: currentLong
 
-    lat: 5.755128,
-    lng: 0.050256
+    //   lat: 5.755128,
+    //  lng: 0.050256
 
     // lat: 5.754487382950839,
     // lng: 0.050190650641205724
@@ -58,7 +57,8 @@ const GMap = () => {
       center: center,
       zoom: 20,
       mapTypeId: "satellite",
-      radius: radius
+      radius: radius,
+      zoomControl: false
     });
 
     const premisesContent =
