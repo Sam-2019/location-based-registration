@@ -1,5 +1,5 @@
 .App {
-  font-family: 'Ubuntu', sans-serif;
+  font-family: "Ubuntu", sans-serif;
   margin: 0;
 }
 
@@ -11,4 +11,56 @@
 *::before,
 *::after {
   box-sizing: border-box;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  width: 400px;
+}
+
+label {
+  padding: 0 0 5px 5px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+input {
+  margin: 0px 0px 10px 0px;
+  padding: 15px;
+  font-size: 18px;
+  border-radius: 15px;
+  border: 2px solid #d5d5d542;
+  outline: none;
+  width: 100%;
+}
+
+input:focus,
+input:active {
+  border: 3px solid #2b8f0a;
+}
+
+button {
+  border-radius: 10px;
+  transition: transform 80ms ease-in;
+  width: 100%;
+  padding: 10px 0;
+  text-align: center;
+  font-size: 20px;
+  outline: none;
+}
+
+select {
+  padding: 5px 0;
+  margin: 0px 0px 10px 0px;
+  padding: 15px;
+  font-size: 18px;
+  border-radius: 15px;
+}
+
+@media (max-width: 500px) {
+  form {
+    width: 95%;
+  }
 }

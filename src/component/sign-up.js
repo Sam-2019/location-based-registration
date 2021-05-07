@@ -3,9 +3,8 @@ import { useForm } from "react-hook-form";
 import { useMutation } from "@apollo/client";
 import { Wrapper } from "../styledComponents";
 import { SIGNUP } from "../graphqlFunctions";
+import { MapButton } from "../constants/helper";
 import Success from "./Success";
-
-import "./form.css";
 
 export default function Signup() {
   const [state, setState] = React.useState(true);
@@ -69,7 +68,7 @@ export default function Signup() {
         </select>
         {errors.department && <span>This field is required</span>}
 
-        <input type="submit" />
+        <MapButton id="submit">Submit</MapButton>
       </form>
     </Wrapper>
   );

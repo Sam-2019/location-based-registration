@@ -58,6 +58,5 @@ export const Popup = styled.div`
   margin: auto;
   transition: all 0.6s ease-in-out;
   max-width: 400px;
-  /* border: 1px solid red; */
   text-align: center;
 `;

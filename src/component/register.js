@@ -5,8 +5,6 @@ import { REGISTERR } from "../graphqlFunctions";
 import { RegisterWrapper } from "../styledComponents";
 import Success from "./Success";
 
-import "./form.css";
-
 const Register = ({ closeRegister }) => {
   const [state, setState] = React.useState(true);
 
