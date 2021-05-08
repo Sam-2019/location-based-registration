@@ -24,7 +24,7 @@ const GMap = () => {
 
   const [registerNow, { loading, data, error }] = useMutation(REGISTER);
 
-  //console.log(loading, data, error);
+  console.log(loading, data, error);
 
   const googleMapRef = useRef(null);
   let googleMap = null;
