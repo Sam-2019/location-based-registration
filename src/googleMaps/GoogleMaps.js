@@ -46,8 +46,8 @@ const GMap = () => {
     lat: 5.755128,
     lng: 0.050256
 
-    // lat: 5.754487382950839,
-    // lng: 0.050190650641205724
+    //  lat: 5.754487382950839,
+    //  lng: 0.050190650641205724
   };
 
   useEffect(() => {
@@ -180,10 +180,19 @@ const GMap = () => {
   }
 
   function show() {
-    if (data) {
-      setSuccess(true);
+    // const timer = setTimeout(() => {
+    //   setSuccess(true);
+    // }, 3000);
+
+    // return () => clearTimeout(timer);
+
+    if (loading === false) {
+      const timer = setTimeout(() => {
+        setSuccess(true);
+      }, 1500);
+
+      return () => clearTimeout(timer);
     }
-    return;
   }
 
   return (
@@ -212,14 +221,22 @@ const GMap = () => {
 
         <div>
           {distance >= radius ? (
-            <MapButton id="cant-register">
-              <ExclamationTriangle />
-              Not eligible to Register!
-            </MapButton>
+            <MapButton
+              id="cant-register"
+              value={
+                <>
+                  <ExclamationTriangle />
+                  Not eligible to Register!
+                </>
+              }
+            />
           ) : (
-            <MapButton action={showRegister} id="register">
-              Register
-            </MapButton>
+            <MapButton
+              action={showRegister}
+              id={loading ? "disable-register" : "register"}
+              loading={loading}
+              value="Register"
+            />
           )}
         </div>
       </div>

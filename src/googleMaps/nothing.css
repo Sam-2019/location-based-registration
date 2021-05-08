@@ -87,6 +87,14 @@
   transform: scale(0.9);
 }
 
+#disable-register{
+  background-color: #636363;
+  border: 1px solid transparent;
+  width: 100%;
+  margin: 5px 0 0 0;
+  color: white;
+}
+
 #cant-register {
   background-color: #cb2929;
   border: 1px solid transparent;

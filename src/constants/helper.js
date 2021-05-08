@@ -1,9 +1,9 @@
 import React from "react";
 
-export const MapButton = ({ action, children, id }) => {
+export const MapButton = ({ action, children, id, loading, value }) => {
   return (
     <button id={id} onClick={action}>
-      {children}
+      {loading ? "Loading" : value}
     </button>
   );
 };
