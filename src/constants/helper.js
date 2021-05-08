@@ -3,7 +3,7 @@ import React from "react";
 export const MapButton = ({ action, children, id, loading, value }) => {
   return (
     <button id={id} onClick={action}>
-      {loading ? "Loading" : value}
+      {loading ? "Loading..." : value}
     </button>
   );
 };
