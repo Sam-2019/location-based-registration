@@ -1,6 +1,6 @@
 # location-based-registration
 
-Geo-fence apllication to allow users log attendance using a GPS-enabled device when within a designated perimeter.
+Geo-fence application to allow users log attendance using a GPS-enabled device when within a designated perimeter.
 
 Created with CodeSandbox
 
