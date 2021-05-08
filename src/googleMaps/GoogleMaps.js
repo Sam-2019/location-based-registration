@@ -197,7 +197,7 @@ const GMap = () => {
 
       {/* <LocationMarker /> */}
 
-      <div id="info-button">
+      <div id="info-box">
         <div className="text-area">
           <div className="svg">
             <LocationSVG />

@@ -50,15 +50,18 @@
   height: auto;
 }
 
-#info-button {
+#info-box {
   position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
-  width: auto;
-  padding: 10px 0;
+  padding: 0 10px 10px;
   transition: all ease 0.7s;
-  margin: 15px 10px;
+  margin: 0 auto;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 #drop {
