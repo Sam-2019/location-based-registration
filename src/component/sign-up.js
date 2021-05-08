@@ -3,7 +3,6 @@ import { useForm } from "react-hook-form";
 import { useMutation } from "@apollo/client";
 import { Wrapper } from "../styledComponents";
 import { SIGNUP } from "../graphqlFunctions";
-import { MapButton } from "../constants/helper";
 import Success from "./Success";
 
 export default function Signup() {
@@ -55,13 +54,17 @@ export default function Signup() {
           {...register("firstName", { required: true })}
           placeholder="First Name"
         />
-        {errors.fname && <span>This field is required</span>}
+        {errors.firstName && (
+          <span className="error">This field is required</span>
+        )}
 
         <input
           {...register("lastName", { required: true })}
           placeholder="Last Name"
         />
-        {errors.lname && <span>This field is required</span>}
+        {errors.lastName && (
+          <span className="error">This field is required</span>
+        )}
 
         <label>Department</label>
         <select {...register("department", { required: true })}>
@@ -73,9 +76,11 @@ export default function Signup() {
           <option value="Supply Chain">Supply Chain</option>
           <option value="Other">Other</option>
         </select>
-        {errors.department && <span>This field is required</span>}
+        {errors.department && (
+          <span className="error">This field is required</span>
+        )}
 
-        <MapButton id="submit">Submit</MapButton>
+        <input type="submit" id="submit" />
       </form>
     </Wrapper>
   );

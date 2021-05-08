@@ -71,14 +71,17 @@
   background-color: #2b8f0a;
 }
 
-#register {
+#register,
+#submit {
   background-color: #2b8f0a;
   border: 1px solid transparent;
   width: 100%;
   margin: 5px 0 0 0;
+  color: white;
 }
 
-#register:active {
+#register:active,
+#submit:active {
   transform: scale(0.95);
 }
 
@@ -97,11 +100,9 @@
   border-radius: 0 0 10px 10px;
 }
 
-#submit {
-  background-color: #2b8f0a;
-  border: 1px solid transparent;
-  width: 100%;
-  margin: 5px 0 0 0;
+.error {
+  margin: -10px 0px 15px 0px;
+  color: orangered;
 }
 
 .text-area {
