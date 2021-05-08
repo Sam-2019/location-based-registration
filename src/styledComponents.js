@@ -41,7 +41,7 @@ export const PopupWrapper = styled.div`
   left: 0;
   right: 0;
   bottom: 0;
-  top: 50%;
+  top: 60%;
   transition: all ease 0.7s;
   z-index: 11;
   animation-name: fade-in;
@@ -51,7 +51,7 @@ export const PopupWrapper = styled.div`
   display: flex;
   align-content: center;
   background-color: #ffffff;
-  border-radius: 50px 50px 0 0;
+  border-radius: 30px 30px 0 0;
 `;
 
 export const Popup = styled.div`
@@ -59,4 +59,5 @@ export const Popup = styled.div`
   transition: all 0.6s ease-in-out;
   max-width: 400px;
   text-align: center;
+  border: 1px solid red;
 `;
