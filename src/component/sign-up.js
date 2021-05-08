@@ -80,7 +80,10 @@ export default function Signup() {
           <span className="error">This field is required</span>
         )}
 
-        <input type="submit" id="submit" />
+        <button type="submit" id="submit">
+          {" "}
+          Submit
+        </button>
       </form>
     </Wrapper>
   );
