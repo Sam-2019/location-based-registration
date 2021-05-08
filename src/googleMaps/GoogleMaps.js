@@ -22,7 +22,9 @@ const GMap = () => {
   const [form, setForm] = useState(false);
   const [success, setSuccess] = useState(false);
 
-  const [registerNow, { loading }] = useMutation(REGISTER);
+  const [registerNow, { loading, data, error }] = useMutation(REGISTER);
+
+  console.log(loading, data, error);
 
   const googleMapRef = useRef(null);
   let googleMap = null;
@@ -178,9 +180,10 @@ const GMap = () => {
   }
 
   function show() {
-    if (loading === false) {
+    if (data) {
       setSuccess(true);
     }
+    return;
   }
 
   return (
