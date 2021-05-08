@@ -180,12 +180,6 @@ const GMap = () => {
   }
 
   function show() {
-    // const timer = setTimeout(() => {
-    //   setSuccess(true);
-    // }, 3000);
-
-    // return () => clearTimeout(timer);
-
     if (loading === false) {
       const timer = setTimeout(() => {
         setSuccess(true);
