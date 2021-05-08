@@ -7,7 +7,7 @@ export default function AnotherSuccess() {
     <PopupWrapper>
       <Popup>
         <Animation />
-        Registeration successful
+        Registration successful
       </Popup>
     </PopupWrapper>
   );
