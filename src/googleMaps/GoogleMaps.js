@@ -40,11 +40,11 @@ const GMap = () => {
   };
 
   const userLocation = {
-    //   lat: currentLat,
-    //  lng: currentLong
+    lat: currentLat,
+    lng: currentLong
 
-    lat: 5.755128,
-    lng: 0.050256
+    //  lat: 5.755128,
+    //  lng: 0.050256
 
     //  lat: 5.754487382950839,
     //  lng: 0.050190650641205724
