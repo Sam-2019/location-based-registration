@@ -9,7 +9,7 @@ function AppROutes() {
     <Router>
       <Switch>
         <Route path="/dashboard">
-          <Signup />
+          <Dashboard />
         </Route>
 
         <Route path="/signup">
