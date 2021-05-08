@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import PropTypes from "prop-types";
 import Register from "../component/register";
 import LocationSVG from "../component/locationSVG";
-import LocationMarker from "../component/location-marker";
+// import LocationMarker from "../component/location-marker";
 import DistanceOverlay from "../component/distance-overlay";
 import Success from "../component/Success2";
 import { useData } from "../Context/Context";
