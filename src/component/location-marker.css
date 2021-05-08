@@ -1,5 +1,6 @@
 .location-marker {
   align-items: center;
+  border: 1px solid red;
 }
 
 .location-marker:hover::before {

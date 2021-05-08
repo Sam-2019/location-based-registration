@@ -17,7 +17,9 @@ const Success = ({ data, loading }) => {
     <Wrapper>
       <SuccessItem>
         <Animation />
-        <button onClick={goHome}>Go Home</button>
+        <button id="submit" onClick={goHome}>
+          Go Home
+        </button>
       </SuccessItem>
     </Wrapper>
   );

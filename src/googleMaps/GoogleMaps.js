@@ -58,7 +58,10 @@ const GMap = () => {
       zoom: 20,
       mapTypeId: "satellite",
       radius: radius,
-      zoomControl: false
+      zoomControl: true,
+      zoomControlOptions: {
+        position: google.maps.ControlPosition.RIGHT_CENTER
+      }
     });
 
     const premisesContent =
@@ -186,7 +189,7 @@ const GMap = () => {
 
       <DistanceOverlay data={Math.round(distance)} />
 
-      <LocationMarker />
+      {/* <LocationMarker /> */}
 
       <div id="info-button">
         <div className="text-area">
