@@ -87,7 +87,8 @@
   transform: scale(0.9);
 }
 
-#disable-register{
+#disable-register,
+#disable-submit {
   background-color: #636363;
   border: 1px solid transparent;
   width: 100%;

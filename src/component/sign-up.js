@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { useMutation } from "@apollo/client";
 import { Wrapper } from "../styledComponents";
 import { SIGNUP } from "../graphqlFunctions";
+import { MapButton } from "../constants/helper";
 import Success from "./Success";
 
 export default function Signup() {
@@ -42,8 +43,14 @@ export default function Signup() {
 
     // await saveID();
 
-    await setState(false);
+    await show();
   };
+
+  function show() {
+    if (loading === false) {
+      setState(false);
+    }
+  }
 
   const Form = () => (
     <Wrapper>
@@ -80,10 +87,15 @@ export default function Signup() {
           <span className="error">This field is required</span>
         )}
 
-        <button type="submit" id="submit">
-          {" "}
+        {/* <button type="submit" id="submit">
           Submit
-        </button>
+        </button> */}
+
+        <MapButton
+          id={loading ? "disable-submit" : "submit"}
+          loading={loading}
+          value="Submit"
+        />
       </form>
     </Wrapper>
   );

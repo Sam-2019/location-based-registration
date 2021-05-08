@@ -17,14 +17,14 @@ const radius = 17.18;
 const GMap = () => {
   const { currentLat, currentLong, token, auth } = useData();
 
-  //console.log(currentLat, currentLong);
+  console.log(currentLat, currentLong);
   const [distance, setDistance] = useState(0);
   const [form, setForm] = useState(false);
   const [success, setSuccess] = useState(false);
 
   const [registerNow, { loading, data, error }] = useMutation(REGISTER);
 
-  console.log(loading, data, error);
+  //console.log(loading, data, error);
 
   const googleMapRef = useRef(null);
   let googleMap = null;
