@@ -22,9 +22,9 @@ const GMap = () => {
   const [form, setForm] = useState(false);
   const [success, setSuccess] = useState(false);
 
-  const [registerNow, { loading, data, error }] = useMutation(REGISTER);
+  const [registerNow, { loading, error }] = useMutation(REGISTER);
 
-  console.log(loading, data, error);
+  console.log(loading, error);
 
   const googleMapRef = useRef(null);
   let googleMap = null;
