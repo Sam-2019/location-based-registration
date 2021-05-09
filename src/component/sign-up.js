@@ -21,13 +21,10 @@ export default function Signup() {
     const array = new Uint32Array(1);
 
     const index = window.crypto.getRandomValues(array);
-    //console.log(index);
 
     const userID = {
       token: index[0]
     };
-
-    //console.log(userID.token);
 
     await localStorage.setItem("signupTOKEN", JSON.stringify(userID));
 
@@ -37,11 +34,8 @@ export default function Signup() {
         firstname: firstName,
         lastname: lastName,
         department: department
-        // date: String(Date.now())
       }
     });
-
-    // await saveID();
 
     await show();
   };
@@ -86,10 +80,6 @@ export default function Signup() {
         {errors.department && (
           <span className="error">This field is required</span>
         )}
-
-        {/* <button type="submit" id="submit">
-          Submit
-        </button> */}
 
         <MapButton
           id={loading ? "disable-submit" : "submit"}
