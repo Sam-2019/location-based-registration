@@ -17,7 +17,7 @@ const Register = ({ closeRegister }) => {
   } = useForm();
 
   const onSubmit = async (data) => {
-    // console.log(data);
+
     closeRegister();
 
     setState(false);
