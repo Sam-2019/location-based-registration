@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { useLocalStorage } from "../hooks/useLocalStorage";
 
 const Data = () => {
@@ -13,7 +13,9 @@ const Data = () => {
   const [watchLong, setwatchLong] = useState(0);
   // const [watchPositionError, setWatchPositionError] = useState("");
 
-  const [error, setError] = useState("");
+  const [locationError, setLocationError] = useState("");
+
+  const locationWatchId = useRef(null);
 
   // Success handler for geolocation's `getCurrentPosition` method
   const currentPositionSuccess = (pos) => {
@@ -23,19 +25,29 @@ const Data = () => {
     setCurrentLong(longitude);
   };
 
-  const handleError = (error) => {
-    setError(error.message);
-  };
-
   // const currentError = (error) => {
   //   setCurrentPositionError(error.message);
   // };
+
   // Success handler for geolocation's `watchPosition` method
   const watchPositionSuccess = (pos) => {
     const { latitude, longitude } = pos.coords;
 
     setwatchLat(latitude);
     setwatchLong(longitude);
+  };
+
+  const handleError = (error) => {
+    setLocationError(error.message);
+  };
+
+  // Clears the watch instance based on the saved watch id
+  const cancelLocationWatch = () => {
+    const { geolocation } = navigator;
+
+    if (locationWatchId.current && geolocation) {
+      geolocation.clearWatch(locationWatchId.current);
+    }
   };
 
   // Error handler for geolocation's `watchPosition` method
@@ -57,16 +69,23 @@ const Data = () => {
 
       if (!didCancel) {
         if (!geolocation) {
-          setError("Geolocation is not supported.");
+          setLocationError("Geolocation is not supported.");
           return;
         }
 
+        // Call Geolocation API
         geolocation.getCurrentPosition(
           currentPositionSuccess,
           handleError,
           options
         );
-        geolocation.watchPosition(watchPositionSuccess, handleError, options);
+
+        // Start to watch the location with the Geolocation API
+        locationWatchId.current = geolocation.watchPosition(
+          watchPositionSuccess,
+          handleError,
+          options
+        );
       }
     }
 
@@ -74,6 +93,7 @@ const Data = () => {
 
     return () => {
       didCancel = true;
+      cancelLocationWatch();
     };
   }, []);
 
@@ -86,7 +106,7 @@ const Data = () => {
     watchLong,
     // currentPositionError,
     // watchPositionError,
-    error
+    locationError
   };
 };
 

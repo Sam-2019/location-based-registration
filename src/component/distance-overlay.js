@@ -1,14 +1,18 @@
 import React from "react";
 
-const DistanceOverlay = ({ data }) => {
+const DistanceOverlay = ({ distance }) => {
   return (
-    <div className="distance-overlay">
-      <div className="distance">Distance</div>
+    <>
+      {distance > 1000 ? null : (
+        <div className="distance-overlay">
+          <div className="distance">Distance</div>
 
-      <div className="number">{data}</div>
+          <div className="number">{distance}</div>
 
-      <div className="meters">Meters</div>
-    </div>
+          <div className="meters">Meters</div>
+        </div>
+      )}
+    </>
   );
 };
 

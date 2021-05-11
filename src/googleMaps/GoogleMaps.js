@@ -9,14 +9,16 @@ import { useData } from "../Context/Context";
 import { useMutation } from "@apollo/client";
 import { REGISTER } from "../graphqlFunctions";
 import { MapButton, ExclamationTriangle } from "../constants/helper";
+import EnableLocation from "../component/EnableLocation";
 
 import "./nothing.css";
 
 const radius = 17.18;
 
 const GMap = () => {
-  const { currentLat, currentLong, token, auth } = useData();
+  const { currentLat, currentLong, token, auth, locationError } = useData();
 
+  console.log(locationError);
   //console.log(currentLat, currentLong);
   const [distance, setDistance] = useState(0);
   const [form, setForm] = useState(false);
@@ -24,7 +26,7 @@ const GMap = () => {
 
   const [registerNow, { loading, error }] = useMutation(REGISTER);
 
-  console.log(loading, error);
+  //console.log(loading, error);
 
   const googleMapRef = useRef(null);
   let googleMap = null;
@@ -58,7 +60,7 @@ const GMap = () => {
     const map = new google.maps.Map(googleMapRef.current, {
       center: center,
       zoom: 20,
-      mapTypeId: "satellite",
+      // mapTypeId: "satellite",
       radius: radius,
       zoomControl: true,
       zoomControlOptions: {
@@ -131,8 +133,9 @@ const GMap = () => {
     });
 
     const path = [premises.getPosition(), user.getPosition()];
-    poly.setPath(path);
-    geodesicPoly.setPath(path);
+
+    // poly.setPath(path);
+    // geodesicPoly.setPath(path);
   };
 
   useEffect(() => {
@@ -147,8 +150,14 @@ const GMap = () => {
         to
       );
 
+      console.log(distanceMeters);
+
       if (!didCancel) {
-        setDistance(distanceMeters);
+        if (isNaN(distanceMeters) === NaN) {
+          setDistance(0);
+        } else {
+          setDistance(distanceMeters);
+        }
 
         if (distanceMeters === radius) {
         }
@@ -193,7 +202,7 @@ const GMap = () => {
     <div>
       <div ref={googleMapRef} id="mapContainer" />
 
-      <DistanceOverlay data={Math.round(distance)} />
+      <DistanceOverlay distance={Math.round(distance)} />
 
       {/* <LocationMarker /> */}
 
@@ -238,6 +247,8 @@ const GMap = () => {
       {form ? <Register closeRegister={closeRegister} /> : null}
 
       {success ? <Success /> : null}
+
+      {locationError ? <EnableLocation data={locationError} /> : null}
     </div>
   );
 };
