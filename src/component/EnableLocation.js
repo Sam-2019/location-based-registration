@@ -5,7 +5,7 @@ export default function EnableLocation() {
   return (
     <PopupWrapper>
       <Popup>
-        <h1>Location access denied!</h1>
+        <h2>Location access denied!</h2>
 
         <h4>To resolve this issue,</h4>
 
