@@ -29,7 +29,7 @@ const GMap = () => {
 
   //console.log(locationError);
 
-  console.log(`current ${currentLat}, ${currentLong}`);
+  //console.log(`current ${currentLat}, ${currentLong}`);
   // console.log(`watch ${watchLat}, ${watchLong}`);
 
   const [distance, setDistance] = useState(0);
