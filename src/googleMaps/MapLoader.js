@@ -3,7 +3,7 @@ import Loader from "../component/Loader";
 import GoogleMaps from "./GoogleMaps";
 
 // API key of the google map
-const GOOGLE_MAP_API_KEY = "";
+const GOOGLE_MAP_API_KEY = "AIzaSyAp0NSXBzcbvUFA7ZAZp8YjXIVv8zE1WpA";
 
 // load google map script
 const loadGoogleMapScript = (callback) => {

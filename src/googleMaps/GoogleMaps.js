@@ -16,17 +16,26 @@ import "./nothing.css";
 const radius = 17.18;
 
 const GMap = () => {
-  const { currentLat, currentLong, token, auth, locationError } = useData();
+  const {
+    currentLat,
+    currentLong,
+    watchLat,
+    watchLong,
+    token,
+    auth,
+    locationError
+  } = useData();
 
-  console.log(locationError);
-  //console.log(currentLat, currentLong);
+  //console.log(locationError);
+
+  // console.log(`current ${currentLat}, ${currentLong}`);
+  // console.log(`watch ${watchLat}, ${watchLong}`);
+
   const [distance, setDistance] = useState(0);
   const [form, setForm] = useState(false);
   const [success, setSuccess] = useState(false);
 
   const [registerNow, { loading, error }] = useMutation(REGISTER);
-
-  //console.log(loading, error);
 
   const googleMapRef = useRef(null);
   let googleMap = null;
@@ -42,8 +51,8 @@ const GMap = () => {
   };
 
   const userLocation = {
-    lat: currentLat,
-    lng: currentLong
+    lat: watchLat,
+    lng: watchLong
 
     //  lat: 5.755128,
     //  lng: 0.050256
