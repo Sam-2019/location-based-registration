@@ -1,15 +1,16 @@
 import React, { useEffect, useRef, useState } from "react";
 import PropTypes from "prop-types";
-import Register from "../component/register";
-import LocationSVG from "../component/locationSVG";
+
 // import LocationMarker from "../component/location-marker";
+import Register from "../component/register";
 import DistanceOverlay from "../component/distance-overlay";
 import Success from "../component/Success2";
+import EnableLocation from "../component/EnableLocation";
+import ShowLocationandRegister from "../component/ShowLocationAndRegister";
+
 import { useData } from "../Context/Context";
 import { useMutation } from "@apollo/client";
 import { REGISTER } from "../graphqlFunctions";
-import { MapButton, ExclamationTriangle } from "../constants/helper";
-import EnableLocation from "../component/EnableLocation";
 
 import "./nothing.css";
 
@@ -215,49 +216,20 @@ const GMap = () => {
 
       {/* <LocationMarker /> */}
 
-      <div id="info-box">
-        <div className="text-area">
-          <div className="svg">
-            <LocationSVG />
-          </div>
-
-          <div className="premisesXwithin">
-            <div className="premises"> ICGC Elim Temple </div>
-            {distance >= radius ? (
-              <div className="within-premises"> Not on Premises </div>
-            ) : (
-              <div className="within-premises"> On Premises </div>
-            )}
-          </div>
-        </div>
-
-        <div>
-          {distance >= radius ? (
-            <MapButton
-              id="cant-register"
-              value={
-                <>
-                  <ExclamationTriangle />
-                  Not eligible to Register!
-                </>
-              }
-            />
-          ) : (
-            <MapButton
-              action={showRegister}
-              id={loading ? "disable-register" : "register"}
-              loading={loading}
-              value="Register"
-            />
-          )}
-        </div>
-      </div>
-
       {form && <Register closeRegister={closeRegister} />}
 
       {success && <Success />}
 
-      {locationError && <EnableLocation data={locationError} />}
+      {locationError ? (
+        <EnableLocation data={locationError} />
+      ) : (
+        <ShowLocationandRegister
+          distance={distance}
+          radius={radius}
+          loading={loading}
+          showRegister={showRegister}
+        />
+      )}
     </div>
   );
 };
