@@ -28,7 +28,7 @@ const GMap = () => {
 
   //console.log(locationError);
 
-  // console.log(`current ${currentLat}, ${currentLong}`);
+  console.log(`current ${currentLat}, ${currentLong}`);
   // console.log(`watch ${watchLat}, ${watchLong}`);
 
   const [distance, setDistance] = useState(0);
@@ -51,8 +51,8 @@ const GMap = () => {
   };
 
   const userLocation = {
-    lat: watchLat,
-    lng: watchLong
+    lat: currentLat,
+    lng: currentLong
 
     //  lat: 5.755128,
     //  lng: 0.050256
