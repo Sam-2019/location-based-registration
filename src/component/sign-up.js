@@ -18,6 +18,10 @@ export default function Signup() {
   } = useForm();
 
   const onSubmit = async ({ firstName, lastName, department }) => {
+    if (department === "Choose Department") {
+      console.log(errors);
+      return;
+    }
     const array = new Uint32Array(1);
 
     const index = window.crypto.getRandomValues(array);
@@ -67,9 +71,12 @@ export default function Signup() {
           <span className="error">This field is required</span>
         )}
 
-        <label>Department</label>
-        <select {...register("department", { required: true })}>
-          <option selected disabled>
+        {/* <label>Department</label> */}
+        <select
+          {...register("department", { required: true })}
+          placeholder="Last Name"
+        >
+          <option selected disabled value="">
             Choose Department
           </option>
           <option value="Car Park">Car Park</option>
