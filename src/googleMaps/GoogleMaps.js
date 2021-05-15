@@ -244,11 +244,11 @@ const GMap = () => {
         </div>
       </div>
 
-      {form ? <Register closeRegister={closeRegister} /> : null}
+      {form && <Register closeRegister={closeRegister} />}
 
-      {success ? <Success /> : null}
+      {success && <Success />}
 
-      {locationError ? <EnableLocation data={locationError} /> : null}
+      {locationError && <EnableLocation data={locationError} />}
     </div>
   );
 };

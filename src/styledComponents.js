@@ -52,6 +52,8 @@ export const PopupWrapper = styled.div`
   align-content: center;
   background-color: #ffffff;
   border-radius: 30px 30px 0 0;
+  max-width: 450px;
+  margin: auto;
 `;
 
 export const Popup = styled.div`
