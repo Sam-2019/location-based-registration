@@ -17,20 +17,7 @@ import "./nothing.css";
 const radius = 17.18;
 
 const GMap = () => {
-  const {
-    currentLat,
-    currentLong,
-    watchLat,
-    watchLong,
-    token,
-    auth,
-    locationError
-  } = useData();
-
-  //console.log(locationError);
-
-  //console.log(`current ${currentLat}, ${currentLong}`);
-  // console.log(`watch ${watchLat}, ${watchLong}`);
+  const { currentLat, currentLong, token, auth, locationError } = useData();
 
   const [distance, setDistance] = useState(0);
   const [form, setForm] = useState(false);
@@ -151,7 +138,7 @@ const GMap = () => {
   useEffect(() => {
     let didCancel = false;
 
-    async function compute() {
+    async function computeDistance() {
       const to = await new google.maps.LatLng(center);
       const from = await new google.maps.LatLng(userLocation);
 
@@ -159,8 +146,6 @@ const GMap = () => {
         from,
         to
       );
-
-      console.log(distanceMeters);
 
       if (!didCancel) {
         if (isNaN(distanceMeters) === NaN) {
@@ -176,12 +161,12 @@ const GMap = () => {
       // console.log("Distance in Meters: ", distanceMeters);
     }
 
-    compute();
+    computeDistance();
 
     return () => {
       didCancel = true;
     };
-  }, []);
+  }, [center, locationError, distance]);
 
   function closeRegister() {
     setForm(false);

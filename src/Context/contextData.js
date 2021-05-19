@@ -95,7 +95,7 @@ const Data = () => {
       didCancel = true;
       cancelLocationWatch();
     };
-  }, []);
+  }, [currentLat, currentLong, watchLat, watchLong]);
 
   return {
     token,
